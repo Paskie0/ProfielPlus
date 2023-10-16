@@ -1,18 +1,13 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>ProfielPlus</title>
-</head>
-<body>
-<header>
-    <?php require 'partials/header.php' ?>
-</header>
-<main>
 
-</main>
-<footer>
-    <?php require 'partials/footer.php' ?>
-</footer>
+<?php require 'partials/head.php' ?>
+
+<body>
+    <?php require 'partials/header/header.php' ?>
+    <main>
+
+    </main>
+    <?php require 'partials/footer/footer.php' ?>
 </body>
+
 </html>
