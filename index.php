@@ -1,17 +1,13 @@
 <?php
-$basePath = '/ProfielPlus'; // Set your base path here
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$route = str_replace($basePath, '', $uri);
-
 $routes = [
-    $basePath . '/' => 'controllers/index.php',
-    $basePath . '/account' => 'controllers/account.php',
-    $basePath . '/admin' => 'controllers/admin.php',
-    $basePath . '/portfolio' => 'controllers/portfolio.php'
+    '/ProfielPlus' => 'controllers/index.php',
+    '/ProfielPlus/account' => 'controllers/account.php',
+    '/ProfielPlus/admin' => 'controllers/admin.php',
+    '/ProfielPlus/portfolio' => 'controllers/portfolio.php'
 ];
 
-if (array_key_exists($route, $routes)) {
-    require $routes[$route];
+if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
+    require $routes[$_SERVER['REQUEST_URI']];
 } else {
-    header("Location: $basePath/");
+    header("Location: /ProfielPlus");
 }
