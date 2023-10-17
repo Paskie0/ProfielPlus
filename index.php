@@ -1,9 +1,9 @@
 <?php
 $routes = [
-    '/' => '/ProfielPlus/controllers/index.php',
-    '/account' => '/ProfielPlus/controllers/account.php',
-    '/admin' => '/ProfielPlus/controllers/admin.php',
-    '/portfolio' => '/ProfielPlus/controllers/portfolio.php'
+    '/' => 'controllers/index.php',
+    '/account' => '/controllers/account.php',
+    '/admin' => '/controllers/admin.php',
+    '/portfolio' => '/controllers/portfolio.php'
 ];
 
 if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
