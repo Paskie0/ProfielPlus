@@ -9,5 +9,5 @@ $routes = [
 if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
     require $routes[$_SERVER['REQUEST_URI']];
 } else {
-    header("Location: /ProfielPlus");
+    http_response_code(404);
 }
