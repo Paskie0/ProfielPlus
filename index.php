@@ -1,13 +1,19 @@
 <?php
+$baseDirectory = '/ProfielPlus';
+
+if ($_SERVER['SERVER_NAME'] === 'localhost') {
+    $baseDirectory = '';
+}
+
 $routes = [
-    '/' => 'controllers/index.php',
-    '/account' => 'controllers/account.php',
-    '/admin' => 'controllers/admin.php',
-    '/portfolio' => 'controllers/portfolio.php'
+    $baseDirectory . '/' => 'controllers/index.php',
+    $baseDirectory . '/account' => 'controllers/account.php',
+    $baseDirectory . '/admin' => 'controllers/admin.php',
+    $baseDirectory . '/portfolio' => 'controllers/portfolio.php'
 ];
 
 if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
     require $routes[$_SERVER['REQUEST_URI']];
 } else {
-    http_response_code(404);
+    echo $_SERVER['REQUEST_URI'];
 }
