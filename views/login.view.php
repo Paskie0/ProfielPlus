@@ -15,6 +15,8 @@
             <li>
                 <form method="post" action="../loginAuth.php">
                     <input type="text" placeholder="Email" name="email">
+                    <!-- currently password is being hashed in loginAuth.php after the http request. it is probably best to hash it here first
+                    using javascript before sending it to the server.-->
                     <input type="password" placeholder="Password" name="password">
                     <input type="submit" value="Submit">
                 </form>
