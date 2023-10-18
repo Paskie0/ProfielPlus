@@ -6,4 +6,3 @@
     <link rel="stylesheet" href="views/partials/footer/footer.css" />
     <script src="views/partials/header/header.js" async></script>
     <script src="views/partials/footer/footer.js" async></script>
-</head>
