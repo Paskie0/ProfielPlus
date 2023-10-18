@@ -17,4 +17,3 @@
         </ul>
     </nav>
 </header>
-<script src="views/partials/header/header.js"></script>
