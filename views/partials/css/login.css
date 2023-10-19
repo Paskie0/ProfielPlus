@@ -17,7 +17,7 @@ main {
         & > ul {
             list-style: none;
             display: grid;
-            grid-template-rows: repeat(5, min-content 1fr);
+            grid-template-rows: 1fr 1fr 1fr;
             place-items: center;
             justify-self: center;
 
@@ -28,18 +28,27 @@ main {
                     max-width: 400px;
                 }
 
-                & > input {
-                    padding: 0.25rem;
-                    border: none;
-                    border-radius: 0.25rem;
-                }
+                & > form {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr 1fr;
+                    place-items: center;
+                    justify-self: center;
 
-                & > button {
-                    background-color: var(--secondary);
-                    border: none;
-                    border-radius: 0.25rem;
-                    color: var(--text);
-                    padding: 0.5rem 1rem;
+                    & > input {
+                        margin: 0.25rem;
+                        padding: 0.25rem;
+                        border: none;
+                        border-radius: 0.25rem;
+                    }
+
+                    & > #button {
+                        margin: 0.25rem;
+                        background-color: var(--secondary);
+                        border: none;
+                        border-radius: 0.25rem;
+                        color: var(--text);
+                        padding: 0.5rem 1rem;
+                    }
                 }
 
                 & > ul {
