@@ -46,7 +46,8 @@ $routes = [
     $baseDirectory . '/account' => 'controllers/account.php',
     $baseDirectory . '/admin' => 'controllers/admin.php',
     $baseDirectory . '/portfolio' => 'controllers/portfolio.php',
-    $baseDirectory . '/login' => 'controllers/login.php'
+    $baseDirectory . '/login' => 'controllers/login.php',
+    $baseDirectory . '/signup' => 'controllers/signup.php'
 ];
 
 if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
