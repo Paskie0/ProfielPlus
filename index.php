@@ -9,10 +9,11 @@ try {
         "mysql:host=$dbconn[servername];
         dbname=$dbconn[dbname]",
         $dbconn['username'],
-        $dbconn['drowssap']);
+        $dbconn['drowssap']
+    );
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//    echo "Connected successfully";
+    //    echo "Connected successfully";
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
@@ -29,16 +30,11 @@ try {
 //    echo "Database connection not available.";
 //}
 
-function includeController($controller, $conn) {
+function includeController($controller, $conn)
+{
     require $controller;
 }
 
-$routes = [
-    '/' => 'controllers/index.php',
-    '/account' => 'controllers/account.php',
-    '/admin' => 'controllers/admin.php',
-    '/portfolio' => 'controllers/portfolio.php',
-    '/login' => 'controllers/login.php'
 $baseDirectory = '/ProfielPlus';
 
 if ($_SERVER['SERVER_NAME'] === 'localhost') {
@@ -49,13 +45,12 @@ $routes = [
     $baseDirectory . '/' => 'controllers/index.php',
     $baseDirectory . '/account' => 'controllers/account.php',
     $baseDirectory . '/admin' => 'controllers/admin.php',
-    $baseDirectory . '/portfolio' => 'controllers/portfolio.php'
+    $baseDirectory . '/portfolio' => 'controllers/portfolio.php',
+    $baseDirectory . '/login' => 'controllers/login.php'
 ];
 
 if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
     includeController($routes[$_SERVER['REQUEST_URI']], $conn);
 } else {
     http_response_code(404);
-}
-    echo $_SERVER['REQUEST_URI'];
 }
