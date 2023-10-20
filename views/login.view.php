@@ -27,7 +27,7 @@
                 </li>
                 <li>
                     <ul>
-                        <li>signup</li>
+                        <li><a href="/signup">signup</a></li>
                         <li>forgotten password</li>
                     </ul>
                 </li>

@@ -17,8 +17,6 @@ try {
 
 function sqlGetDataWithParam($select, $from, $where, $param, $conn)
 {
-
-
     $sql = "select $select from $from where $where = :param";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':param', $param);
@@ -26,3 +24,4 @@ function sqlGetDataWithParam($select, $from, $where, $param, $conn)
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
     return $data;
 }
+
