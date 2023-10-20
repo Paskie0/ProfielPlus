@@ -1,4 +1,5 @@
 <?php
+
 $App = require 'private.php';
 $dbconn = $App['database'];
 global $conn;
@@ -38,10 +39,23 @@ $routes = [
     '/admin' => 'controllers/admin.php',
     '/portfolio' => 'controllers/portfolio.php',
     '/login' => 'controllers/login.php'
+$baseDirectory = '/ProfielPlus';
+
+if ($_SERVER['SERVER_NAME'] === 'localhost') {
+    $baseDirectory = '';
+}
+
+$routes = [
+    $baseDirectory . '/' => 'controllers/index.php',
+    $baseDirectory . '/account' => 'controllers/account.php',
+    $baseDirectory . '/admin' => 'controllers/admin.php',
+    $baseDirectory . '/portfolio' => 'controllers/portfolio.php'
 ];
 
 if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
     includeController($routes[$_SERVER['REQUEST_URI']], $conn);
 } else {
     http_response_code(404);
+}
+    echo $_SERVER['REQUEST_URI'];
 }
