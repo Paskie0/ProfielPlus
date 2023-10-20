@@ -1,8 +1,6 @@
 <html lang="en">
 
-<head>
-    <?php require 'partials/head.php' ?>
-</head>
+<?php require 'partials/head.php' ?>
 
 <body>
     <?php require 'partials/header/header.php' ?>

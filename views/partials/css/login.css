@@ -1,0 +1,67 @@
+@import url("../css/main.css");
+
+main {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    padding: 1rem;
+
+    & > section {
+        width: 30vw;
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        place-items: center;
+        justify-self: end;
+        border: 1pt var(--secondary) solid;
+        border-radius: 0.25rem;
+
+        & > ul {
+            list-style: none;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            place-items: center;
+            justify-self: center;
+
+            & > li {
+                margin: 0.25rem;
+
+                & > img {
+                    max-width: 400px;
+                }
+
+                & > form {
+                    display: grid;
+                    grid-template-rows: 1fr 1fr 1fr;
+                    place-items: center;
+                    justify-self: center;
+
+                    & > input {
+                        margin: 0.25rem;
+                        padding: 0.25rem;
+                        border: none;
+                        border-radius: 0.25rem;
+                    }
+
+                    & > #button {
+                        margin: 0.25rem;
+                        background-color: var(--secondary);
+                        border: none;
+                        border-radius: 0.25rem;
+                        color: var(--text);
+                        padding: 0.5rem 1rem;
+                    }
+                }
+
+                & > ul {
+                    list-style: none;
+                    display: grid;
+                    grid-template-columns: repeat(2, min-content);
+                    place-items: center;
+
+                    & > li {
+                        padding: 0.5rem 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
