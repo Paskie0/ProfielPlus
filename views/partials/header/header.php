@@ -1,6 +1,6 @@
 <header>
     <a href="/">
-        <img src="" alt="Logo">
+        <img src="/images/PROFIEL%20PLUS%20inverted.png" alt="Logo">
         <h2>ProfielPlus</h2>
     </a>
     <nav>
