@@ -4,6 +4,9 @@ $App = require 'private.php';
 $dbconn = $App['database'];
 global $conn;
 
+session_start();
+$_SESSION['loggedIn'] = false;
+
 try {
     $conn = new PDO(
         "mysql:host=$dbconn[servername];
@@ -47,7 +50,8 @@ $routes = [
     $baseDirectory . '/admin' => 'controllers/admin.php',
     $baseDirectory . '/portfolio' => 'controllers/portfolio.php',
     $baseDirectory . '/login' => 'controllers/login.php',
-    $baseDirectory . '/signup' => 'controllers/signup.php'
+    $baseDirectory . '/signup' => 'controllers/signup.php',
+    $baseDirectory . '/updateprofile' => 'controllers/updateProfile.php'
 ];
 
 if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {

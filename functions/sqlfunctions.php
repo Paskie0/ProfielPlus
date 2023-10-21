@@ -25,3 +25,8 @@ function sqlGetDataWithParam($select, $from, $where, $param, $conn)
     return $data;
 }
 
+function sqlInsertIntoValues($table, $cullums, $values, $conn){
+    $sql = "insert into $table($cullums)values($values)";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}

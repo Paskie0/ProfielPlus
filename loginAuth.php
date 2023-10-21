@@ -1,22 +1,6 @@
 <?php
-global $conn;
 require "functions/sqlfunctions.php";
-$App = require 'private.php';
-$dbconn = $App['database'];
-$notNull = false;
-
-try {
-    $conn = new PDO(
-        "mysql:host=$dbconn[servername];
-        dbname=$dbconn[dbname]",
-        $dbconn['username'],
-        $dbconn['drowssap']);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//    echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+$conn = require "functions/connection.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -39,7 +23,11 @@ if ($notNull) {
         $drowssapData = sqlGetDataWithParam('drowssap', 'drowssap', "user_id", $id, $conn);
         $drowssap = $drowssapData['drowssap'];
         if ($password == $drowssap) {
-            echo "login okay";
+            session_start();
+            $_SESSION['user_id'] = $id;
+            $_SESSION['loggedIn'] = true;
+//            echo "login okay. id is: " . $_SESSION["user_id"];
+            header('location: /updateprofile');
         } else {
             echo "incorrect password";
         }
