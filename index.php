@@ -4,9 +4,6 @@ $App = require 'private.php';
 $dbconn = $App['database'];
 global $conn;
 
-session_start();
-$_SESSION['loggedIn'] = false;
-
 try {
     $conn = new PDO(
         "mysql:host=$dbconn[servername];

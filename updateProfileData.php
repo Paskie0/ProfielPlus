@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo $_SESSION['loggedIn'];
 
 require "functions/sqlfunctions.php";
 $conn = require "functions/connection.php";
@@ -47,6 +46,15 @@ if (isset($_POST['educationSubmit'])) {
 if (isset($_POST['skillsSubmit'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $skill_name = $_POST["skill_name"];
-        $skill_level= $_POST["skill_level"];
+        $skill_level = $_POST["skill_level"];
+
+        $data_skill_name = sqlGetDataWithParam('name', 'skills', 'name', $skill_name, $conn);
+        if (empty($data_skill_name)) {
+            sqlInsertIntoValues('skills', 'name', $skill_name, $conn);
+        }
+        $skill_idData = sqlGetDataWithParam('id', 'skills', 'name', $skill_name, $conn);
+        $skill_id = $skill_idData['id'];
+        sqlInsertIntoValues('skills_users', 'user_id,skill_id,skill_level', $_SESSION["user_id"] . ',' . $skill_id . ',' . $skill_level, $conn);
+        header('location: /updateprofile');
     }
 }

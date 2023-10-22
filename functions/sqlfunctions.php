@@ -25,8 +25,20 @@ function sqlGetDataWithParam($select, $from, $where, $param, $conn)
     return $data;
 }
 
-function sqlInsertIntoValues($table, $cullums, $values, $conn){
-    $sql = "insert into $table($cullums)values($values)";
+
+function sqlInsertIntoValues($table, $columns, $values, $conn)
+{
+    $columns = explode(',', $columns);
+    $valuePlaceholders = rtrim(str_repeat('?,', count($columns)), ',');
+    $sql = "INSERT INTO $table (" . implode(',', $columns) . ") VALUES ($valuePlaceholders)";
     $stmt = $conn->prepare($sql);
-    $stmt->execute();
+    $values = explode(',', $values);
+
+    $stmt->execute($values);
+}
+
+
+function sqlUpdateValues()
+{
+
 }
