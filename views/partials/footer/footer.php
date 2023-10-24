@@ -1,9 +1,11 @@
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
 <footer>
     <div class="column">
-        <div class="logo">
-            <img src="/images/PROFIEL%20PLUS%20inverted.png">
-        </div>
+        <a href="/">
+            <div class="logo">
+                <img src="/images/PROFIEL%20PLUS%20inverted.png">
+            </div>
+        </a>
         <div class="socials">
             <a href="https://www.linkedin.com/in/paskie/"><i class="ri-linkedin-box-fill"></i></a>
             <a href="https://www.linkedin.com/in/robin-broere-310a72223/"><i class="ri-linkedin-box-fill"></i></a>
