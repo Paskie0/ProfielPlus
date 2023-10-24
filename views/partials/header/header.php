@@ -1,8 +1,10 @@
 <header>
-    <a href="/">
-        <img src="/images/PROFIEL%20PLUS%20inverted.png" alt="Logo">
-        <h2>ProfielPlus</h2>
-    </a>
+    <div class="header-logo">
+        <a href="/">
+            <img src="/images/PROFIEL%20PLUS%20inverted.png">
+            <h2>ProfielPlus</h2>
+        </a>
+    </div>
     <nav>
         <ul>
             <a href="/">Portfolio</a>

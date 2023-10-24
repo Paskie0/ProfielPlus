@@ -1,0 +1,40 @@
+main {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    padding: 1rem;
+    & > section{
+        width: 50vw;
+        max-height: 500px;
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        justify-self: left;
+        justify-items: center;
+        margin: 1rem;
+        padding: 10px;
+        border: 1pt var(--secondary) solid;
+        border-radius: 0.25rem;
+    }
+    & > section2{
+        width: 40vw;
+        max-height: 500px;
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        place-items: center;
+        justify-self: end;
+        margin: 1rem;
+        padding: 10px;
+        overflow: auto;
+        border: 1pt var(--secondary) solid;
+        border-radius: 0.25rem;
+    }
+    & > ::-webkit-scrollbar{
+        width: 12px;
+    }
+    & > ::-webkit-scrollbar-track{
+        background: var(--secondary);
+    }
+    & > ::-webkit-scrollbar-thumb{
+        background: var(--accent);
+        border-radius: 10px;
+    }
+}

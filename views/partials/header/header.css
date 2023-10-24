@@ -3,11 +3,11 @@ header {
   grid-template-columns: min-content 1fr;
   padding: 1rem;
   & > a {
-    display: grid;
+    display: flex;
     grid-template-columns: min-content 1fr;
     place-items: center;
+    max-width: 150px;
   }
-
   & nav {
     display: grid;
     & ul {
@@ -16,7 +16,6 @@ header {
       grid-template-columns: repeat(5, min-content);
       place-items: center;
       justify-self: end;
-
       & > * {
         padding: 0.3rem 0.6rem;
         border-radius: 0.25rem;
