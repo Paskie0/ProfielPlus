@@ -37,7 +37,6 @@ navLinks.forEach((link) => {
   });
 
   link.addEventListener("mouseout", () => {
-    navBackground.style.translate = 0;
     navBackground.style.left = 0;
     navBackground.style.opacity = 0;
   });
