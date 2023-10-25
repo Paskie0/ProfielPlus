@@ -5,8 +5,6 @@
     <link rel="stylesheet" href="../views/partials/css/login.css" />
 </head>
 
-</head>
-
 <body>
     <?php require 'partials/header/header.php' ?>
     <main>
