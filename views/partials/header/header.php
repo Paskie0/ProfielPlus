@@ -1,21 +1,26 @@
 <header>
-    <div class="header-logo">
-        <a href="/">
-            <img src="/images/PROFIEL%20PLUS%20inverted.png">
-            <h2>ProfielPlus</h2>
-        </a>
-    </div>
-    <nav>
-        <ul>
+    <a href="/">
+        <img src="/images/ProfielPlus.svg" alt="Logo">
+    </a>
+    <nav id="headerNav">
+        <ul id="test">
             <a href="/">Portfolio</a>
             <a href="/login" <?= ($_SERVER['REQUEST_URI'] == '/login' ? 'active' : ''); ?>>Login</a>
             <a href="/account">Account</a>
             <a href="/admin">Admin</a>
-            <svg id="hamburger" viewBox="0 0 100 80" width="40" height="40">
-                <rect width="100" height="20" rx="8"></rect>
-                <rect y="30" width="100" height="20" rx="8"></rect>
-                <rect y="60" width="100" height="20" rx="8"></rect>
-            </svg>
+            <button id="menuButton" aria-expanded="false" onclick="openMenu()">
+                <svg viewBox="0 0 100 100" fill="#ffffff">
+                    <rect width="80" height="10" x="10" y="20" rx="5" class="top"></rect>
+                    <rect width="80" height="10" x="10" y="45" rx="5" class="middle"></rect>
+                    <rect width="80" height="10" x="10" y="70" rx="5" class="bottom"></rect>
+                </svg>
+            </button>
         </ul>
+    </nav>
+    <nav id="headerDropdown">
+        <a href="/">Portfolio</a>
+        <a href="/login" <?= ($_SERVER['REQUEST_URI'] == '/login' ? 'active' : ''); ?>>Login</a>
+        <a href="/account">Account</a>
+        <a href="/admin">Admin</a>
     </nav>
 </header>
