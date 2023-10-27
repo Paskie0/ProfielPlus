@@ -24,10 +24,8 @@ if ($notNull) {
         $drowssap = $drowssapData['drowssap'];
         if ($password == $drowssap) {
             session_start();
-//            echo $_SESSION['loggedIn'];
            $_SESSION['user_id'] = $id;
-//            $_SESSION['loggedIn'] = true;
-//            echo "login okay. id is: " . $_SESSION["user_id"] . $_SESSION['loggedIn'];
+
             header('location: /updateprofile');
         } else {
             echo "incorrect password";

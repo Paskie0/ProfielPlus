@@ -45,7 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':user_id', $id);
         $stmt->bindParam(':drowssap', $hashPass);
         $stmt->execute();
-        echo "account created";
+        //account created
+        session_start();
+        $_SESSION['user_id'] = $id;
+        //create Profile
+
+        sqlInsertIntoValues('profile', 'user_id',$id, $conn);
+
     }
 }
 

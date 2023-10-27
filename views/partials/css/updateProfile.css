@@ -30,44 +30,68 @@ main {
 
                 }
 
-                & > form {
-                    margin: 0.25rem;
+                & > div {
                     display: grid;
-                    grid-template-rows: auto;
+                    grid-template-columns: repeat(2, 1fr);
 
-                    & > label {
+
+                    & > form {
                         margin: 0.25rem;
+                        display: grid;
+                        grid-template-rows: auto;
+
+                        & > label {
+                            margin: 0.25rem;
+                        }
+
+                        & > input {
+                            width: min-content;
+                            padding: 0.25rem;
+                            margin: 0.25rem;
+                            border: none;
+                            border-radius: 0.25rem;
+                        }
+
+                        & > #file {
+                            width: min-content;
+                            padding: 0.25rem;
+                            margin: 0.25rem;
+                            border: none;
+                            border-radius: 0.25rem;
+                        }
+
+                        & > #button {
+                            margin: 0.25rem;
+                            background-color: var(--secondary);
+                            border: none;
+                            border-radius: 0.25rem;
+                            color: var(--text);
+                            padding: 0.5rem 1rem;
+                        }
                     }
 
-                    & > input {
-                        width: min-content;
-                        padding: 0.25rem;
-                        margin: 0.25rem;
-                        border: none;
-                        border-radius: 0.25rem;
-                    }
+                    & > #skillList {
+                        list-style: none;
 
-                    & > #file {
-                        width: min-content;
-                        padding: 0.25rem;
-                        margin: 0.25rem;
-                        border: none;
-                        border-radius: 0.25rem;
-                    }
+                        & > li {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            border: 1px var(--secondary) solid;
+                            border-radius: 0.25rem;
+                            /*margin: 0.25rem;*/
 
-                    & > #button {
-                        margin: 0.25rem;
-                        background-color: var(--secondary);
-                        border: none;
-                        border-radius: 0.25rem;
-                        color: var(--text);
-                        padding: 0.5rem 1rem;
+                            & > div {
+                                /*padding: 0.25rem;*/
+                            }
+                        }
                     }
                 }
             }
         }
     }
+
 }
+
 .line {
     border: 1px var(--secondary) solid;
 }
