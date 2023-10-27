@@ -5,8 +5,8 @@
     <nav id="headerNav">
         <ul id="test">
             <a href="/">Portfolio</a>
-            <a href="/login" <?= ($_SERVER['REQUEST_URI'] == '/login' ? 'active' : ''); ?>>Login</a>
-            <a href="/account">Account</a>
+            <a href="/login">Login</a>
+            <a href="/updateprofile">Account</a>
             <a href="/admin">Admin</a>
             <button id="menuButton" aria-expanded="false" onclick="openMenu()">
                 <svg viewBox="0 0 100 100" fill="#ffffff">
