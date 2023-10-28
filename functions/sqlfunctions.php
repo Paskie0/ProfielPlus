@@ -37,6 +37,24 @@ function sqlGetDataWithParamAll($select, $from, $where, $param, $conn)
     return $data;
 }
 
+function sqlDataWithJoin ($select,$from,$param,$join,$conn){
+    $sql = "select $select from $from where = :param join $join";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':param', $param);
+    $stmt->execute();
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}
+
+function sqlDataWithTwoJoin ($select,$from,$param,$join,$join2,$conn){
+    $sql = "select $select from $from where = :param join $join join $join2";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':param', $param);
+    $stmt->execute();
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}
+
 
 function sqlInsertIntoValues($table, $columns, $values, $conn)
 {
