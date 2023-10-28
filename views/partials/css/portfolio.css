@@ -1,0 +1,112 @@
+main {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "profile profile profile projects projects projects"
+    "skills education cv projects projects projects"
+    "skills education cv projects projects projects";
+  gap: 0.25rem;
+  padding: 0.5rem;
+
+  & div {
+    display: grid;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    border: 2px solid black;
+    border-radius: 0.25rem;
+  }
+
+  & #profile {
+    grid-area: profile;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "pfp name bio bio"
+      "pfp name bio bio"
+      "title title bio bio";
+
+    > * {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--accent);
+    }
+
+    & #pfp {
+      grid-area: pfp;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+    }
+
+    & #name {
+      grid-area: name;
+    }
+
+    & #bio {
+      grid-area: bio;
+      place-items: start center;
+      padding: 0.25rem;
+    }
+
+    & #title {
+      grid-area: title;
+    }
+  }
+
+  & #projects {
+    grid-area: projects;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+
+    & > * {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--accent);
+    }
+  }
+
+  & #skills {
+    grid-area: skills;
+
+    & > * {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--accent);
+    }
+  }
+
+  & #education {
+    grid-area: education;
+
+    & > * {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--accent);
+    }
+  }
+
+  & #cv {
+    grid-area: cv;
+
+    & > * {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--accent);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "profile"
+      "projects"
+      "skills"
+      "education"
+      "cv";
+  }
+}
