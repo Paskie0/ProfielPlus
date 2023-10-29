@@ -3,15 +3,19 @@ main {
     grid-template-columns: minmax(150px, 300px) 1fr;
     padding: 1rem;
 
-    & > aside {
-
+    & > aside{
+        max-width: 10px;
+        max-height: 10px;
     }
 
     & > article {
+        margin-left: auto;
+        margin-right: auto;
 
         & > ul {
             display: grid;
-            grid-template-rows: repeat(5, min-content);
+            grid-template-columns: auto auto;
+            grid-template-rows: repeat(3, min-content);
             list-style: none;
             place-items: normal;
             justify-self: center;
@@ -21,6 +25,7 @@ main {
                 display: grid;
                 grid-template-rows: repeat(2, min-content);
                 margin: 0.25rem;
+                padding: 1rem;
                 border: 2px var(--secondary) solid;
                 border-radius: 0.25rem;
 
@@ -34,6 +39,9 @@ main {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
 
+                    & > ul{
+                        list-style-type: disc;
+                    }
 
                     & > form {
                         margin: 0.25rem;
@@ -78,7 +86,7 @@ main {
                             grid-template-columns: repeat(2, 1fr);
                             border: 1px var(--secondary) solid;
                             border-radius: 0.25rem;
-                            /*margin: 0.25rem;*/
+                            margin: 0.25rem;
 
                             & > div {
                                 /*padding: 0.25rem;*/
