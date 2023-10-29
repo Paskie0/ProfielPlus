@@ -4,7 +4,7 @@
     </a>
     <nav id="headerNav">
         <ul id="test">
-            <a href="/">Portfolio</a>
+            <a href="/portfolio">Portfolio</a>
             <a href="/login">Login</a>
             <a href="/updateprofile">Account</a>
             <a href="/admin">Admin</a>

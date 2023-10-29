@@ -21,7 +21,7 @@
     <article>
         <ul>
             <li>
-                <p>profile
+                <p>Profile
                 <hr class="line">
                 </p>
                 <div>
@@ -34,7 +34,7 @@
                 </div>
             </li>
             <li>
-                <p>projects
+                <p>Projects
                 <hr class="line">
                 </p>
                 <div>
@@ -56,7 +56,7 @@
                 </div>
             </li>
             <li>
-                <p>jobs
+                <p>Jobs
                 <hr class="line">
                 </p>
                 <div>
@@ -79,7 +79,7 @@
                 </div>
             </li>
             <li>
-                <p>education
+                <p>Education
                 <hr class="line">
                 </p>
                 <div>
@@ -102,7 +102,7 @@
                 </div>
             </li>
             <li>
-                <p>skills
+                <p>Skills
                 <hr class="line">
                 </p>
                 <div>

@@ -14,8 +14,8 @@
                <li><img src="../images/PROFIEL%20PLUS%20inverted.png" alt="Logo"></li>
                 <li>
                     <form action="/" method="post">
-                        <input  type="hidden" value="<?= $hobby[0]['id']; ?>">
-                        <input type="text" value="<?= $hobby[0]['hobby']; ?>">
+                        <input  type="hidden" value="<?= $hobby [0]['id']; ?>">
+                        <input type="text" value="<?= $hobby [0]['hobby']; ?>">
                         <button type="submit">Bewerk</button>
                     </form>
                 </li>
