@@ -9,7 +9,7 @@ main {
   gap: 0.25rem;
   padding: 0.5rem;
 
-  & div {
+  & > div {
     display: grid;
     gap: 0.25rem;
     padding: 0.25rem;
@@ -24,33 +24,64 @@ main {
     grid-template-areas:
       "pfp name bio bio"
       "pfp name bio bio"
-      "title title bio bio";
+      "socials socials bio bio";
 
     > * {
       display: grid;
       place-items: center;
-      border: 1px solid var(--accent);
     }
 
     & #pfp {
       grid-area: pfp;
-      width: 100%;
-      aspect-ratio: 1;
       border-radius: 50%;
+      overflow: hidden;
+      align-self: center;
     }
 
     & #name {
       grid-area: name;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+
+      & > div {
+        display: flex;
+        justify-self: left;
+        flex-direction: column;
+        white-space: nowrap;
+
+        & span:first-child {
+          font-weight: bold;
+        }
+
+        & span:nth-child(2) {
+          font-size: 0.875rem;
+          color: gray;
+        }
+      }
     }
 
     & #bio {
       grid-area: bio;
-      place-items: start center;
-      padding: 0.25rem;
+      place-items: start left;
+      font-size: 0.875rem;
     }
 
-    & #title {
-      grid-area: title;
+    & #socials {
+      grid-area: socials;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.25rem;
+
+      & > a {
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+
+        & > img {
+          width: 75%;
+          border-radius: 50%;
+        }
+      }
     }
   }
 
@@ -58,13 +89,12 @@ main {
     grid-area: projects;
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 1rem;
 
     & > * {
       display: grid;
       place-items: center;
-      border: 1px solid var(--accent);
     }
   }
 
@@ -76,6 +106,10 @@ main {
       place-items: center;
       border: 1px solid var(--accent);
     }
+
+    & > ul {
+      list-style-type: none;
+    }
   }
 
   & #education {
@@ -86,6 +120,10 @@ main {
       place-items: center;
       border: 1px solid var(--accent);
     }
+
+    & > ul {
+      list-style-type: none;
+    }
   }
 
   & #cv {
@@ -95,6 +133,10 @@ main {
       display: grid;
       place-items: center;
       border: 1px solid var(--accent);
+    }
+
+    & > ul {
+      list-style-type: none;
     }
   }
 }
