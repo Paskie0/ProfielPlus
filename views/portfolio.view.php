@@ -9,10 +9,30 @@
     <?php require 'partials/header/header.php' ?>
     <main>
         <div id="profile">
-            <img src="" alt="picture" id="pfp">
-            <span id="name">Pascal de Wit</span>
-            <span id="title">Student</span>
-            <p id="bio">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <div id="pfp">
+                <img src="../images/cat.jpg" alt="picture">
+            </div>
+            <div id="name">
+                <div>
+                    <span>Pascal de Wit</span>
+                    <span>@Paskie</span>
+                    <span>Student</span>
+                </div>
+            </div>
+            <div id="socials">
+                <a href="">
+                    <img src="../images/github-mark.svg" alt="">
+                </a>
+                <a href="">
+                    <img src="../images/github-mark.svg" alt="">
+                </a>
+                <a href="">
+                    <img src="../images/github-mark.svg" alt="">
+                </a>
+            </div>
+            <div id="bio">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ex, praesentium fugiat quo nisi debitis aspernatur nemo deleniti id, incidunt inventore minima veniam quos recusandae soluta rem dolores, aperiam esse eius. Architecto vel, molestias veritatis quibusdam delectus omnis alias facere?</p>
+            </div>
         </div>
         <div id="skills">
             <ul>
@@ -43,9 +63,9 @@
         </div>
         <div id="projects">
             <div>
-                <span>1</span>
+                <span>ProfielPlus</span>
                 <img src="" alt="">
-                <a href=""></a>
+                <a href="https://github.com/Paskie0/ProfielPlus"></a>
             </div>
             <div>
                 <span>2</span>
