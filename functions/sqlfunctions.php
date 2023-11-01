@@ -37,7 +37,8 @@ function sqlGetDataWithParamAll($select, $from, $where, $param, $conn)
     return $data;
 }
 
-function sqlDataWithJoin ($select,$from,$param,$join,$conn){
+function sqlDataWithJoin($select, $from, $param, $join, $conn)
+{
     $sql = "select $select from $from where = :param join $join";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':param', $param);
@@ -46,7 +47,8 @@ function sqlDataWithJoin ($select,$from,$param,$join,$conn){
     return $data;
 }
 
-function sqlDataWithTwoJoin ($select,$from,$param,$join,$join2,$conn){
+function sqlDataWithTwoJoin($select, $from, $param, $join, $join2, $conn)
+{
     $sql = "select $select from $from where = :param join $join join $join2";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':param', $param);
@@ -86,12 +88,21 @@ function sqlUpdateOne($table, $setColumn, $setParam, $where, $whereParam, $conn)
     $stmt->execute();
 }
 
-function sqlUpdateTwo($table, $setColumnOne, $setParamOne,$setColumnTwo, $setParamTwo, $where, $whereParam, $conn)
+function sqlUpdateTwo($table, $setColumnOne, $setParamOne, $setColumnTwo, $setParamTwo, $where, $whereParam, $conn)
 {
     $sql = "update $table set $setColumnOne  = :setParamOne , $setColumnTwo = :setParamTwo where $where = :whereParam";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':setParamOne', $setParamOne);
     $stmt->bindParam(':setParamTwo', $setParamTwo);
     $stmt->bindParam(':whereParam', $whereParam);
+    $stmt->execute();
+}
+
+function sqlDelete($table, $id, $user_id, $conn)
+{
+    $sql = "delete from $table where user_id = :user_id and id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
 }

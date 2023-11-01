@@ -5,9 +5,9 @@
     require 'partials/head.php';
     $conn = require 'functions/connection.php';
     require 'functions/sqlfunctions.php';
-    //    session_start();
     ?>
     <link rel="stylesheet" href="../views/partials/css/updateProfile.css"/>
+    <script src="../views/partials/javascript/updateProfile.js"></script>
 </head>
 
 <body>
@@ -45,11 +45,12 @@
                         <input type="text" placeholder="Add link to project" name="project_link">
                         <input type="submit" value="Save changes" id="button" name="projectsSubmit">
                     </form>
-                    <ul>
+                    <ul class="dataDis">
                         <?php
-                        $projectNameData = sqlGetDataWithParamAll('project_name', 'projects', 'user_id', $_SESSION["user_id"], $conn);
+                        $projectNameData = sqlGetDataWithParamAll('project_name,id', 'projects', 'user_id', $_SESSION["user_id"], $conn);
                         foreach ($projectNameData as $projectName) {
-                            echo '<li><div>' . $projectName['project_name'] . '</div><div>x</div></li>';
+                            $link = "http://". $_SERVER['HTTP_HOST'] . "/deleteItems.php?table=projects&id=" . $projectName['id'];
+                            echo '<li><div>' . $projectName['project_name'] . '</div><div class="xButton"><a href="'.$link . '"><img src="../images/delete.svg"></a></div></li>';
                         }
                         ?>
                     </ul>
@@ -67,12 +68,13 @@
                         <input type="date" name="job_stopped_at">
                         <input type="submit" value="Save changes" id="button" name="jobsSubmit">
                     </form>
-                    <ul>
+                    <ul  class="dataDis">
                         <?php
-                        $datajobs = sqlGetDataWithParamAll('job_id', 'jobs_users', 'user_id', $_SESSION["user_id"], $conn);
+                        $datajobs = sqlGetDataWithParamAll('job_id,id', 'jobs_users', 'user_id', $_SESSION["user_id"], $conn);
                         foreach ($datajobs as $datajob) {
                             $jobName = sqlGetDataWithParam('name', 'jobs', 'id', $datajob['job_id'], $conn);
-                            echo '<li><div>' . $jobName['name'] . '</div><div>x</div></li>';
+                            $link = "http://". $_SERVER['HTTP_HOST'] . "/deleteItems.php?table=jobs_users&id=" . $datajob['id'];
+                            echo '<li><div>' . $jobName['name'] . '</div><div class="xButton"><a href="'.$link.'"><img src="../images/delete.svg"></a></div></li>';
                         }
                         ?>
                     </ul>
@@ -90,12 +92,13 @@
                         <input type="date" name="edu_finished_at">
                         <input type="submit" value="Save changes" id="button" name="educationSubmit">
                     </form>
-                    <ul>
+                    <ul  class="dataDis">
                         <?php
-                        $dataEdus = sqlGetDataWithParamAll('education_id', 'education_users', 'user_id', $_SESSION["user_id"], $conn);
+                        $dataEdus = sqlGetDataWithParamAll('education_id,id', 'education_users', 'user_id', $_SESSION["user_id"], $conn);
                         foreach ($dataEdus as $dataEdu) {
                             $eduName = sqlGetDataWithParam('name', 'education', 'id', $dataEdu['education_id'], $conn);
-                            echo '<li><div>' . $eduName['name'] . '</div><div>x</div></li>';
+                            $link = "http://". $_SERVER['HTTP_HOST'] . "/deleteItems.php?table=education_users&id=" . $dataEdu['id'];
+                            echo '<li><div>' . $eduName['name'] . '</div><div class="xButton"><a href="'.$link.'"><img src="../images/delete.svg"></a></div></li>';
                         }
                         ?>
                     </ul>
@@ -112,69 +115,15 @@
                                name="skill_level">
                         <input type="submit" value="Save changes" id="button" name="skillsSubmit">
                     </form>
-                    <ul id="skillList">
-                        <li>
-                            <?php
-                            $dataSkills = sqlGetDataWithParamAll('skill_id', 'skills_users', 'user_id', $_SESSION["user_id"], $conn);
-                            if (isset($dataSkills[0])) {
-                                $dataRow = $dataSkills[0];
-                                $skillNameData = sqlGetDataWithParam('name', 'skills', 'id', $dataRow['skill_id'], $conn);
-                                $skillName = $skillNameData['name'];
-                                echo '<div>' . $skillName . '</div><div>x</div>';
-                            } else {
-                                echo '<div>empty</div><div></div>';
-                            }
-                            ?>
-                        </li>
-                        <li>
-                            <?php
-                            if (isset($dataSkills[1])) {
-                                $dataRow = $dataSkills[1];
-                                $skillNameData = sqlGetDataWithParam('name', 'skills', 'id', $dataRow['skill_id'], $conn);
-                                $skillName = $skillNameData['name'];
-                                echo '<div>' . $skillName . '</div><div>x</div>';
-                            } else {
-                                echo '<div>empty</div><div></div>';
-                            }
-                            ?>
-                        </li>
-                        <li>
-                            <?php
-                            if (isset($dataSkills[2])) {
-                                $dataRow = $dataSkills[2];
-                                $skillNameData = sqlGetDataWithParam('name', 'skills', 'id', $dataRow['skill_id'], $conn);
-                                $skillName = $skillNameData['name'];
-                                echo '<div>' . $skillName . '</div><div>x</div>';
-                            } else {
-                                echo '<div>empty</div><div></div>';
-                            }
-                            ?>
-                        </li>
-                        <li>
-                            <?php
-                            if (isset($dataSkills[3])) {
-                                $dataRow = $dataSkills[3];
-                                $skillNameData = sqlGetDataWithParam('name', 'skills', 'id', $dataRow['skill_id'], $conn);
-                                $skillName = $skillNameData['name'];
-                                echo '<div>' . $skillName . '</div><div>x</div>';
-                            } else {
-                                echo '<div>empty</div><div></div>';
-                            }
-                            ?>
-                        </li>
-                        <li>
-                            <?php
-                            if (isset($dataSkills[4])) {
-                                $dataRow = $dataSkills[4];
-                                $skillNameData = sqlGetDataWithParam('name', 'skills', 'id', $dataRow['skill_id'], $conn);
-                                $skillName = $skillNameData['name'];
-                                echo '<div>' . $skillName . '</div><div>x</div>';
-                            } else {
-                                echo '<div>empty</div><div></div>';
-                            }
-                            ?>
-                        </li>
-
+                    <ul  class="dataDis">
+                        <?php
+                        $dataSkills = sqlGetDataWithParamAll('skill_id,id', 'skills_users', 'user_id', $_SESSION["user_id"], $conn);
+                        foreach ($dataSkills as $dataSkill) {
+                            $skillName = sqlGetDataWithParam('name', 'skills', 'id', $dataSkill['skill_id'], $conn);
+                            $link = "http://". $_SERVER['HTTP_HOST'] . "/deleteItems.php?table=skills_users&id=" . $dataSkill['id'];
+                            echo '<li><div>' . $skillName['name'] . '</div><div class="xButton"><a href="'.$link.'"><img src="../images/delete.svg"></a></div></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </li>

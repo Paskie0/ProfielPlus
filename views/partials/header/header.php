@@ -4,10 +4,13 @@
     </a>
     <nav id="headerNav">
         <ul id="test">
-            <a href="/portfolio">Portfolio</a>
-            <a href="/login">Login</a>
-            <a href="/updateprofile">Account</a>
-            <a href="/admin">Admin</a>
+        <?php
+        $html = !empty($_SESSION["user_id"]) ? '
+                        <a href="/portfolio">Portfolio</a>
+                        <a href="/updateprofile">Account</a>' :
+                        '<a href="/login">Login</a>';
+        echo $html;
+        ?>
             <button id="menuButton" aria-expanded="false" onclick="openMenu()">
                 <svg viewBox="0 0 100 100" fill="#ffffff">
                     <rect width="80" height="10" x="10" y="20" rx="5" class="top"></rect>
