@@ -3,7 +3,7 @@ main {
     grid-template-columns: minmax(150px, 300px) 1fr;
     padding: 1rem;
 
-    & > aside{
+    & > aside {
         max-width: 10px;
         max-height: 10px;
     }
@@ -39,7 +39,7 @@ main {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
 
-                    & > ul{
+                    & > ul {
                         list-style-type: disc;
                     }
 
@@ -78,18 +78,25 @@ main {
                         }
                     }
 
-                    & > #skillList {
+                    & > .dataDis {
                         list-style: none;
 
                         & > li {
+                            padding: 0.25rem;
                             display: grid;
                             grid-template-columns: repeat(2, 1fr);
                             border: 1px var(--secondary) solid;
                             border-radius: 0.25rem;
                             margin: 0.25rem;
 
-                            & > div {
-                                /*padding: 0.25rem;*/
+                            & > .xButton {
+                                justify-self: end;
+
+                                & > a > img {
+                                    width: 20px;
+                                    height: 20px;
+                                }
+
                             }
                         }
                     }
