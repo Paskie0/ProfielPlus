@@ -8,7 +8,7 @@
         $html = !empty($_SESSION["user_id"]) ? '
                         <a href="/portfolio">Portfolio</a>
                         <a href="/updateprofile">Account</a>
-                        <a href="/logout.php">logout</a>' :
+                        <a href="/logout.php">Logout</a>' :
                         '<a href="/login">Login</a>';
         echo $html;
         ?>
