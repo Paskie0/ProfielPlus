@@ -2,7 +2,6 @@
 $App = require(__DIR__ . '/../private.php');
 $dbconn = $App['database'];
 $conn = require 'functions/connection.php';
-session_start();
 
 try {
     $conn = new PDO(

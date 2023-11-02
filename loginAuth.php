@@ -28,13 +28,16 @@ if ($notNull) {
 
             header('location: /updateprofile');
         } else {
-            echo "incorrect password";
+            echo "<script>alert('Incorrect password')</script>";
+            echo "<script>window.location = '/login'</script>";
         }
     } else {
-        echo "incorrect email";
+        echo "<script>alert('Incorrect email')</script>";
+        echo "<script>window.location = '/login'</script>";
     }
 } else {
-    echo 'email or password cannot be null';
+    echo "<script>alert('Email or password cannot be empty')</script>";
+    echo "<script>window.location = '/login'</script>";
 }
 
 
