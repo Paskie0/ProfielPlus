@@ -7,6 +7,7 @@
     require 'functions/sqlfunctions.php';
     ?>
     <link rel="stylesheet" href="../views/partials/css/updateProfile.css"/>
+    <script src="../views/scroll.js"></script>
 </head>
 
 <body>
@@ -14,7 +15,14 @@
 <main>
     <aside>
         <nav>
-            nav
+            <ul>
+                <li>Navigation<hr class="line"></li>
+                <li class="navElement" onclick="goTo(72)">Profile</li>
+                <li class="navElement" onclick="goTo(307)">Projects</li>
+                <li class="navElement" onclick="goTo(572)">Jobs</li>
+                <li class="navElement" onclick="goTo(838)">Education</li>
+                <li class="navElement" onclick="goTo(838)">Skills</li>
+            </ul>
         </nav>
     </aside>
     <article>
