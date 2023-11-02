@@ -14,18 +14,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($emaildata)) {
         echo "no dupe";
     } else {
-        header('location: /signup');
+        echo "<script>alert('Email is already taken')</script>";
+        echo "<script>window.location = '/signup'</script>";
     }
 
     if ($email == "" or $first_name == "" or $name == "" or $password == "") {
-        header('location: /signup?');
+        echo "<script>alert('Fields cannot be empty')</script>";
+        echo "<script>window.location = '/signup'</script>";
     }
 
     $validPass = false;
     if (strlen($password) >= 8) {
         $validPass = true;
     } else {
-        header('location: /signup');
+        echo "<script>alert('Password must be at least 8 characters')</script>";
+        echo "<script>window.location = '/signup'</script>";
     }
     if ($password == $con_password) {
         $sql = "insert into users(name, firstName, email)values (:name, :first_name,:email)";
