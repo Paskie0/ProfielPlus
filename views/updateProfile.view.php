@@ -7,7 +7,6 @@
     require 'functions/sqlfunctions.php';
     ?>
     <link rel="stylesheet" href="../views/partials/css/updateProfile.css"/>
-    <script src="../views/partials/javascript/updateProfile.js"></script>
 </head>
 
 <body>

@@ -1,5 +1,5 @@
 <header>
-    <a href="/">
+    <a href="<?php $href = !empty($_SESSION["user_id"]) ? "/portfolio" : "/"; echo $href;?>">
         <img src="/images/ProfielPlus.svg" alt="Logo">
     </a>
     <nav id="headerNav">
@@ -7,7 +7,8 @@
         <?php
         $html = !empty($_SESSION["user_id"]) ? '
                         <a href="/portfolio">Portfolio</a>
-                        <a href="/updateprofile">Account</a>' :
+                        <a href="/updateprofile">Account</a>
+                        <a href="/logout.php">logout</a>' :
                         '<a href="/login">Login</a>';
         echo $html;
         ?>
