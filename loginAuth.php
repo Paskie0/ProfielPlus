@@ -5,10 +5,10 @@ $conn = require "functions/connection.php";
  *en dat is bij een login niet veilig.
  */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//hier wordt de data vanuit de post opgevraagdt en in een variable gestopt.
+    //hier wordt de data vanuit de post opgevraagdt en in een variable gestopt.
     $email = $_POST["email"];
     $password = $_POST["password"];
-//hier wordt gecontrolleerd of alle velden wel zijn ingevuld.
+    //hier wordt gecontrolleerd of alle velden wel zijn ingevuld.
     if ($email == "" or $password == "") {
         $notNull = false;
     } else {
@@ -31,7 +31,7 @@ if ($notNull) {
         $drowssap = $drowssapData['drowssap'];
         if ($password == $drowssap) {
             session_start();
-           $_SESSION['user_id'] = $id;
+            $_SESSION['user_id'] = $id;
 
             header('location: /portfolio');
         } else {
@@ -46,6 +46,3 @@ if ($notNull) {
     echo "<script>alert('Email or password cannot be empty')</script>";
     echo "<script>window.location = '/login'</script>";
 }
-
-
-

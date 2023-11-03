@@ -1,29 +1,29 @@
-@import url("../css/main.css");
-footer{
-  position: relative;
+footer {
   display: grid;
-  grid-template-columns: 400px repeat(3, 1fr);
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
   gap: 5rem;
   padding-top: 1rem;
-  padding-left: 3rem;
   text-align: center;
 }
-img{
+img {
   width: 100%;
   display: flex;
 }
-.column .logo{
+.column .logo {
   max-width: 200px;
   margin-bottom: 1rem;
   justify-content: center;
 }
-.column .socials{
+.column .socials {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-.column .socials a{
+.column .socials a {
+  display: grid;
+  place-items: center;
   color: #ccc;
   border: 1px solid #ccc;
   padding: 10px 10px;
@@ -31,32 +31,39 @@ img{
   border-radius: 100%;
   transition: all 0.3s ease;
   justify-content: space-between;
+  aspect-ratio: 1;
 }
-.column-email{
 
+.column .socials a img {
+  width: 1.5rem;
 }
-.column .socials a:hover{
+.column-email {
+}
+.column .socials a:hover {
   color: #fff;
   background-color: var(--accent);
   border-color: var(--accent);
 }
 
-.column-aboutus h4, .column-email h4 {
+.column-aboutus h4,
+.column-email h4 {
   color: #fff;
   margin-bottom: 2rem;
   font-size: 1.2rem;
   font-weight: 500;
 }
-.column-aboutus > a, .column-email > a{
+.column-aboutus > a,
+.column-email > a {
   display: block;
   color: #ccc;
   margin-bottom: 1rem;
   transition: all 0.3s ease;
 }
-.column-aboutus > a:hover, .column-email > a:hover{
+.column-aboutus > a:hover,
+.column-email > a:hover {
   color: var(--accent);
 }
-.copyright{
+.copyright {
   max-width: 1200px;
   margin: auto;
   padding: 1rem;

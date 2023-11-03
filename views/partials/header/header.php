@@ -1,5 +1,6 @@
 <header>
-    <a href="<?php $href = empty($_SESSION['user_id']) ? '/' : '/portfolio'; echo $href?>">
+    <a href="<?php $href = empty($_SESSION['user_id']) ? '/' : '/portfolio';
+                echo $href ?>">
         <img src="/images/ProfielPlus.svg" alt="Logo">
     </a>
     <nav id="headerNav">
@@ -32,7 +33,7 @@
     <nav id="headerDropdown">
         <?php
         if (empty($_SESSION['user_id'])) {
-            echo '<a href="/login">Login</a>';
+            echo '<li><a href="/login">Login</a></li>';
         } else {
             echo implode($navLinks);
         }

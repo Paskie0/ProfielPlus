@@ -1,15 +1,14 @@
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
 <footer>
     <div class="column">
         <a href="/">
             <div class="logo">
-                <img src="/images/PROFIEL%20PLUS%20inverted.png">
+                <img src="../../../images/ProfielPlus.svg">
             </div>
         </a>
         <div class="socials">
-            <a href="https://www.linkedin.com/in/paskie/"><i class="ri-linkedin-box-fill"></i></a>
-            <a href="https://www.linkedin.com/in/robin-broere-310a72223/"><i class="ri-linkedin-box-fill"></i></a>
-            <a href="https://www.linkedin.com/in/bram-kroone-010839294/"><i class="ri-linkedin-box-fill"></i></a>
+            <a href="https://www.linkedin.com/in/paskie/"><img src="../../../images/linkedin.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/robin-broere-310a72223/"><img src="../../../images/linkedin.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/bram-kroone-010839294/"><img src="../../../images/linkedin.png" alt=""></a>
         </div>
     </div>
     <div class="column-aboutus">
