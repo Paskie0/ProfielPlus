@@ -21,7 +21,7 @@ function openMenu() {
     });
   }
 }
-const navLinks = document.querySelectorAll("#headerNav a");
+const navLinks = document.querySelectorAll("#headerNav li a");
 const navBackground = document.createElement("div");
 navBackground.classList.add("nav-background");
 document.getElementById("headerNav").appendChild(navBackground);

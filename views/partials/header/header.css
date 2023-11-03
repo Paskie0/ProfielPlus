@@ -15,35 +15,34 @@ header {
     grid-template-columns: min-content;
     place-items: center;
 
-    & img {
+    & > img {
       width: 10rem;
     }
   }
 
-  & #headerNav {
+  #headerNav {
     grid-area: nav;
     display: grid;
     position: relative;
 
-    & ul {
+    & > ul {
       list-style: none;
       display: grid;
       grid-template-columns: repeat(5, min-content);
       place-items: center;
       border-radius: 0.25rem;
 
-      & > a {
+      & > li > a {
         padding: 0.3rem 0.6rem;
         border-radius: 0.25rem;
         transition: 0.2s ease-in-out;
 
         &:hover {
-          /* background-color: var(--secondary); */
           color: var(--accent);
         }
       }
 
-      & #menuButton {
+      #menuButton {
         display: none;
         background: none;
         border: none;
@@ -51,12 +50,12 @@ header {
         cursor: pointer;
         outline: inherit;
 
-        & svg {
-          width: 1.8rem;
+        & > svg {
+          width: 1.75rem;
           aspect-ratio: 1;
           cursor: pointer;
 
-          & rect {
+          & > rect {
             transition-property: y, opacity, rotate;
             transition-duration: 200ms, 0ms, 200ms;
             transition-delay: 200ms, 200ms, 0ms;
@@ -66,26 +65,26 @@ header {
         }
 
         &[aria-expanded="true"] svg {
-          & rect {
+          & > rect {
             transition-property: y, opacity, rotate;
             transition-delay: 0ms, 200ms, 200ms;
             transition-timing-function: ease-in-out;
           }
 
-          & .top,
+          .top,
           .bottom {
             y: 45;
           }
 
-          & .top {
+          .top {
             rotate: 45deg;
           }
 
-          & .middle {
+          .middle {
             opacity: 0;
           }
 
-          & .bottom {
+          .bottom {
             rotate: -45deg;
           }
         }
@@ -106,15 +105,16 @@ header {
     }
   }
 
-  & #headerDropdown {
+  #headerDropdown {
     grid-area: dropdown;
     display: grid;
     grid-template-rows: repeat(5, min-content);
     max-height: 0;
     overflow: hidden;
     transition: max-height 300ms ease-in-out;
+    list-style-type: none;
 
-    & > a {
+    & > li {
       padding: 0.75rem 0;
       margin: 0 0.5rem;
       text-align: center;
@@ -131,11 +131,11 @@ header {
   header #headerNav ul {
     grid-template-columns: min-content;
 
-    & > a:not(#menuButton) {
+    & > li > a:not(#menuButton) {
       display: none;
     }
 
-    & #menuButton {
+    #menuButton {
       display: inline-block;
     }
   }
