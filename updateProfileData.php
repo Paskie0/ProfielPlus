@@ -7,24 +7,38 @@ $user_id = $_SESSION["user_id"];
 
 if (isset($_POST['profileSubmit'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $pfp = $_POST["pfp"];
         $bio = $_POST["bio"];
+        if (empty($bio)) {
+            $bioData = sqlGetDataWithParam('bio', 'profile', 'user_id', $user_id, $conn);
+            $bio = $bioData['bio'];
+        }
+        if (isset($_FILES["pfp"]) && $_FILES["pfp"]["error"] === 0) {
+            $imageData = file_get_contents($_FILES['pfp']['tmp_name']);
+            $imageData = base64_encode($imageData);
+            sqlUpdateTwo('profile', 'pfp', $imageData, 'bio', $bio, 'user_id', $user_id, $conn);
+        } else {
+            sqlUpdateOne('profile', 'bio', $bio, 'user_id', $user_id, $conn);
+        }
 
-        sqlUpdateTwo('profile', 'pfp', $pfp, 'bio', $bio, 'user_id', $user_id, $conn);
         header('location: /updateprofile');
     }
 }
 
+
 if (isset($_POST['projectsSubmit'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $project_name = $_POST["project_name"];
-        $project_image = $_POST["project_image"];
         $project_link = $_POST["project_link"];
 
-        if (!empty($project_link) and !empty($project_image) and !empty($project_name)){
-            sqlInsertIntoValues('projects', 'user_id,project_name,project_link,project_img', $user_id . ','. $project_name. ',' . $project_link .','. $project_image,$conn);
-            header('location: /updateprofile');
-        }else{
+        if (!empty($project_link) and !empty($project_name)) {
+            if (isset($_FILES["project_image"]) && $_FILES["project_image"]["error"] === 0) {
+                $imageData = file_get_contents($_FILES['project_image']['tmp_name']);
+                $imageData = base64_encode($imageData);
+
+                sqlInsertIntoValues('projects', 'user_id,project_name,project_link,project_img', $user_id . ',' . $project_name . ',' . $project_link . ',' . $imageData, $conn);
+                header('location: /updateprofile');
+            }else echo "error";
+        } else {
             header('location: /updateprofile');
         }
     }
@@ -39,8 +53,6 @@ if (isset($_POST['jobsSubmit'])) {
 
 
         if (!empty($jobtitle) and !empty($companyName) and !empty($job_started_at)) {
-            $job_stopped_at = strtotime($job_started_at);
-            $job_stopped_at = strtotime($job_stopped_at);
 
             $companyData = sqlGetDataWithParam('name', 'companies', 'name', $companyName, $conn);
             if (empty($companyData)) {
@@ -73,8 +85,6 @@ if (isset($_POST['educationSubmit'])) {
         $edu_finished_at = $_POST["edu_finished_at"];
 
         if (!empty($education_name) and !empty($school_name) and !empty($edu_started_at)) {
-            $edu_started_at = strtotime($edu_started_at);
-            $edu_finished_at = strtotime($edu_finished_at);
 
             $schoolData = sqlGetDataWithParam('name', 'schools', 'name', $school_name, $conn);
             if (empty($schoolData)) {

@@ -37,9 +37,9 @@ function sqlGetDataWithParamAll($select, $from, $where, $param, $conn)
     return $data;
 }
 
-function sqlDataWithJoin($select, $from, $param, $join, $conn)
+function sqlDataWithJoin($select, $from, $where, $param, $join, $conn)
 {
-    $sql = "select $select from $from where = :param join $join";
+    $sql = "select $select from $from where $where = :param join $join";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':param', $param);
     $stmt->execute();
@@ -47,9 +47,9 @@ function sqlDataWithJoin($select, $from, $param, $join, $conn)
     return $data;
 }
 
-function sqlDataWithTwoJoin($select, $from, $param, $join, $join2, $conn)
+function sqlDataWithTwoJoin($select, $from, $where,  $param, $join, $join2, $conn)
 {
-    $sql = "select $select from $from where = :param join $join join $join2";
+    $sql = "select $select from $from where $where = :param join $join join $join2";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':param', $param);
     $stmt->execute();
