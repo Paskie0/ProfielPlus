@@ -20,8 +20,8 @@ main {
     grid-template-rows: 1fr;
     grid-template-columns: min-content min-content 1fr;
     grid-template-areas: "pfp name bio";
-    background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--backgroundAlt);
+    border: 1px solid var(--primary);
     border-radius: 0.5rem;
 
     > * {
@@ -36,7 +36,7 @@ main {
       & > img {
         width: 5rem;
         aspect-ratio: 1;
-        border: 1px solid var(--accent);
+        border: 1px solid var(--secondary);
         border-radius: 50%;
       }
     }
@@ -79,8 +79,8 @@ main {
   #education,
   #cv {
     grid-template-rows: min-content 1fr;
-    background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--backgroundAlt);
+    border: 1px solid var(--primary);
     border-radius: 0.5rem;
 
     & > span {
@@ -99,9 +99,15 @@ main {
 
       & > li {
         padding: 0.5rem;
-        background-color: #212121;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: var(--background);
+        border: 1px solid var(--secondary);
         border-radius: 1rem;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          background-color: var(--secondary);
+          border: 1px solid var(--accent);
+        }
       }
     }
   }
@@ -123,8 +129,8 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     gap: 0.5rem;
     padding: 0.5rem;
-    background-color: #121212;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--backgroundAlt);
+    border: 1px solid var(--primary);
     border-radius: 0.5rem;
 
     & > div {
@@ -132,14 +138,15 @@ main {
       place-items: center;
       gap: 0.25rem;
       padding: 0.5rem;
-      background-color: #212121;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: var(--background);
+      border: 1px solid var(--secondary);
       border-radius: 1rem;
       transition: 0.2s ease-in-out;
 
       &:hover {
         scale: 1.05;
         background-color: var(--secondary);
+        border: 1px solid var(--accent);
       }
 
       & > a > img {
