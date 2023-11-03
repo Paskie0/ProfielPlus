@@ -14,7 +14,7 @@
 
         </div>
         <section>
-            <img src="../images/PROFIEL%20PLUS%20inverted.png" alt="Logo">
+            <img src="../images/ProfielPlus.svg" alt="Logo">
             <form method="post" action="../signupAuth.php">
                 <input type="text" placeholder="Email" name="email">
                 <input type="text" placeholder="First name" name="first_name">
