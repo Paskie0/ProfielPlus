@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+/*het main css bestand wordt in alle bestanden bovenaan geimporteerd. dit is dus de core van onze styling
+daarom hebben we hier ook als eerst onze huisstijl geimplementeerd. de font wordt geimporteerd en we hebben variablen
+aangemaakt voor onze kleuren. Dit maakt het heel makkelijk om ons aan de huisstijl te houden omdat overal waar een kleurgebruikt wordt
+moeten we een variable gebruiken. dit maakt het onmogeljik om bij de kleuren af te wijken*/
 :root {
   --text: #f3fcfb;
   --background: #081c1b;
@@ -18,7 +21,8 @@
     text-decoration: inherit;
   }
 }
-
+/*ook hier maken we gebruik van onze variable om ons gemakkelijk aan de huisstijl te houden. door deze body tag is de achtergrond, font en color op elke pagina
+hetzelfde. Dit schept de basis waar de overige css bestanden op kunnen stapelen.*/
 body {
   background-color: var(--background);
   font-family: "Inter", sans-serif;
