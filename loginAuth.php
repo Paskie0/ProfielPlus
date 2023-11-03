@@ -26,7 +26,7 @@ if ($notNull) {
             session_start();
            $_SESSION['user_id'] = $id;
 
-            header('location: /updateprofile');
+            header('location: /portfolio');
         } else {
             echo "<script>alert('Incorrect password')</script>";
             echo "<script>window.location = '/login'</script>";
