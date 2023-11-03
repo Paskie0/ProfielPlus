@@ -9,7 +9,7 @@
 <!--header staat als een partial dus ik op elke pagina get zelfde is en makkelijk aan te passen-->
     <?php require 'partials/header/header.php' ?>
     <main>
-<!--        De pagina is in 2 kanten opgedeeld. de linkerkant is weer opgedeeld in 2 rijen. de bovenste rij is het profielsegment-->
+<!--        De pagina is in 3 rijen opgedeeld. bovenaan is het profiel gedeelte om een goed beeld van de gebruiken te scheppen -->
         <div id="profile">
             <div id="pfp">
                 <img src="../<?php echo $pfp ?>" alt="test">
@@ -26,7 +26,7 @@
                 <p><?= $bio ?></p>
             </div>
         </div>
-        <!--        dit is de onderste rij van de derde kant. hier hebben we 3 soortgelijken elementen die met soortgelijke data gevuld zijn
+        <!--        dit is de middelste rij. hier hebben we 3 soortgelijken elementen die met soortgelijke data gevuld zijn
 de drie elementen zijn hier opgemaakt als skills, opleiding en werkervaring en-->
         <div id="skills">
             <span>Skills (1-5)</span>
