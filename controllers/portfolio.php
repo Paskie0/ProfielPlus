@@ -49,7 +49,6 @@ try {
 //die(var_dump($educationData));
 
 
-
 try {
     $sql = "SELECT jobs.name AS job_name, job_id
             FROM jobs
@@ -62,7 +61,6 @@ try {
 } catch (PDOException $e) {
     echo "PDO Error: " . $e->getMessage();
 }
-
 
 
 try {
@@ -107,8 +105,12 @@ try {
     echo "PDO Error: " . $e->getMessage();
 }
 //die(var_dump($jobIdData));
-$profileJobId = $jobIdData['job_id'];
-
-$profileJobData = sqlGetDataWithParam('name', 'jobs', 'id', $profileJobId,$conn);
+if (!empty($jobIdData['job_id'])){
+    $profileJobId = $jobIdData['job_id'];
+    $profileJobData = sqlGetDataWithParam('name', 'jobs', 'id', $profileJobId, $conn);
+    $jobTitle = $profileJobData['name'];
+}else {
+    $jobTitle = 'Unemployed';
+}
 
 require 'views/portfolio.view.php';

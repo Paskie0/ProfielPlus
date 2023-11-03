@@ -33,10 +33,10 @@
                 </p>
                 <div>
                     <form method="post" action="../updateProfileData.php" enctype="multipart/form-data">
-                        <label for="file">Add profile picture</label>
-                        <input type="file" accept="image/jpeg, image/png, image/svg" name="pfp" id="file">
-                        <input type="text" placeholder="Add bio" name="bio">
-                        <input type="submit" value="Save changes" id="button" name="profileSubmit">
+                        <label for="file">Add profile picture</label><div></div>
+                        <input type="file" accept="image/jpeg, image/png, image/svg" name="pfp" id="file"><div></div>
+                        <input type="text" placeholder="Add bio" name="bio"><div></div>
+                        <input type="submit" value="Save changes" id="button" name="profileSubmit"><div></div>
                     </form>
                 </div>
             </li>
@@ -46,11 +46,11 @@
                 </p>
                 <div>
                     <form method="post" action="../updateProfileData.php" enctype="multipart/form-data">
-                        <label for="file">Add project picture</label>
-                        <input type="text" placeholder="Add project name" name="project_name">
-                        <input type="file" accept="image/jpeg, image/png, image/svg" name="project_image" id="file">
-                        <input type="text" placeholder="Add link to project" name="project_link">
-                        <input type="submit" value="Save changes" id="button" name="projectsSubmit">
+                        <input type="text" placeholder="Add project name" name="project_name"><div>*</div>
+                        <label for="file">Add project picture</label><div></div>
+                        <input type="file" accept="image/jpeg, image/png, image/svg" name="project_image" id="file"><div>*</div>
+                        <input type="text" placeholder="Add link to project" name="project_link"><div>*</div>
+                        <input type="submit" value="Save changes" id="button" name="projectsSubmit"><div></div>
                     </form>
                     <ul class="dataDis">
                         <?php
@@ -69,11 +69,11 @@
                 </p>
                 <div>
                     <form method="post" action="../updateProfileData.php">
-                        <input type="text" placeholder="Add job title" name="jobtitle">
-                        <input type="text" placeholder="Add company" name="companyName">
-                        <input type="date" name="job_started_at">
-                        <input type="date" name="job_stopped_at">
-                        <input type="submit" value="Save changes" id="button" name="jobsSubmit">
+                        <input type="text" placeholder="Add job title" name="jobtitle"><div>*</div>
+                        <input type="text" placeholder="Add company" name="companyName"><div>*</div>
+                        <input type="date" name="job_started_at"><div>*</div>
+                        <input type="date" name="job_stopped_at"><div></div>
+                        <input type="submit" value="Save changes" id="button" name="jobsSubmit"><div></div>
                     </form>
                     <ul  class="dataDis">
                         <?php
@@ -93,11 +93,11 @@
                 </p>
                 <div>
                     <form method="post" action="../updateProfileData.php">
-                        <input type="text" placeholder="Add education name" name="education_name">
-                        <input type="text" placeholder="Add school name" name="school_name">
-                        <input type="date" name="edu_started_at">
-                        <input type="date" name="edu_finished_at">
-                        <input type="submit" value="Save changes" id="button" name="educationSubmit">
+                        <input type="text" placeholder="Add education name" name="education_name"><div>*</div>
+                        <input type="text" placeholder="Add school name" name="school_name"><div>*</div>
+                        <input type="date" name="edu_started_at"><div>*</div>
+                        <input type="date" name="edu_finished_at"><div>*</div>
+                        <input type="submit" value="Save changes" id="button" name="educationSubmit"><div></div>
                     </form>
                     <ul  class="dataDis">
                         <?php
@@ -117,10 +117,10 @@
                 </p>
                 <div>
                     <form method="post" action="../updateProfileData.php">
-                        <input type="text" placeholder="Add skill name" name="skill_name">
+                        <input type="text" placeholder="Add skill name" name="skill_name"><div>*</div>
                         <input type="number" min="1" step="1" max="5" placeholder="Add skill level 1 to 5"
-                               name="skill_level">
-                        <input type="submit" value="Save changes" id="button" name="skillsSubmit">
+                               name="skill_level"><div>*</div>
+                        <input type="submit" value="Save changes" id="button" name="skillsSubmit"><div></div>
                     </form>
                     <ul  class="dataDis">
                         <?php

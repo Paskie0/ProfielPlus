@@ -1,12 +1,16 @@
 <header>
-    <a href="/">
+    <a href="<?php $href = empty($_SESSION['user_id']) ? '/' : '/portfolio'; echo $href?>">
         <img src="/images/ProfielPlus.svg" alt="Logo">
     </a>
     <nav id="headerNav">
         <ul>
             <?php
             if (empty($_SESSION['user_id'])) {
-                echo '<a href="/login">Login</a>';
+                $navLinks = [
+                    '<li><a href="/login">Login</a></li>',
+                    '<li><a href="/signup">Signup</a></li>',
+                ];
+                echo implode($navLinks);
             } else {
                 $navLinks = [
                     '<li><a href="/portfolio">Portfolio</a></li>',
