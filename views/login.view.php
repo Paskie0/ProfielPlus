@@ -9,7 +9,7 @@
     <?php require 'partials/header/header.php' ?>
     <main>
         <div>
-            left
+
         </div>
         <section>
             <ul>
@@ -26,7 +26,6 @@
                 <li>
                     <ul>
                         <li><a href="/signup">signup</a></li>
-                        <li>forgotten password</li>
                     </ul>
                 </li>
             </ul>

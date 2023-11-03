@@ -11,7 +11,7 @@
     <?php require 'partials/header/header.php' ?>
     <main>
         <div>
-            left
+
         </div>
         <section>
             <img src="../images/PROFIEL%20PLUS%20inverted.png" alt="Logo">

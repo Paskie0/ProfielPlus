@@ -9,12 +9,12 @@
     <main>
         <div id="profile">
             <div id="pfp">
-                <img src="<?php echo $pfp?>" alt="test">
+                <img src="../<?php echo $pfp?>" alt="test">
             </div>
             <div id="name">
                 <div>
                     <span><?= $firstName . " " . $lastName ?></span>
-                    <span><?= $profileJobData['name'] ?></span>
+                    <span><?= $jobTitle ?></span>
                 </div>
             </div>
             <div id="socials">
@@ -74,7 +74,7 @@
                 imagedestroy($img);
 
                 echo "<div><span>" . $project['project_name'] . "</span>";
-                echo "<a href='". $project['project_link']."' target='_blank'><img src='" .$projectImage ."' alt=''></a>";
+                echo "<a href='". $project['project_link']."' target='_blank'><img src='../" .$projectImage ."' alt='test'></a>";
             } ?>
 
         </div>

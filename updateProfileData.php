@@ -19,8 +19,8 @@ if (isset($_POST['profileSubmit'])) {
         } else {
             sqlUpdateOne('profile', 'bio', $bio, 'user_id', $user_id, $conn);
         }
-
-        header('location: /updateprofile');
+        echo "<script>alert('Profile updated')</script>";
+        echo "<script>window.location = '/updateprofile'</script>";
     }
 }
 
@@ -36,10 +36,12 @@ if (isset($_POST['projectsSubmit'])) {
                 $imageData = base64_encode($imageData);
 
                 sqlInsertIntoValues('projects', 'user_id,project_name,project_link,project_img', $user_id . ',' . $project_name . ',' . $project_link . ',' . $imageData, $conn);
-                header('location: /updateprofile');
-            }else echo "error";
+                echo "<script>alert('Project added')</script>";
+                echo "<script>window.location = '/updateprofile'</script>";
+            }
         } else {
-            header('location: /updateprofile');
+            echo "<script>alert('Not al fields with * where filled')</script>";
+            echo "<script>window.location = '/updateprofile'</script>";
         }
     }
 }
@@ -70,9 +72,11 @@ if (isset($_POST['jobsSubmit'])) {
 
             sqlInsertIntoValues('jobs_users', 'user_id,job_id,company_id,started_at,stopped_at',
                 $user_id . ',' . $jobId . ',' . $companyId . ',' . $job_started_at . ',' . $job_stopped_at, $conn);
-            header('location: /updateprofile');
+            echo "<script>alert('Job added')</script>";
+            echo "<script>window.location = '/updateprofile'</script>";
         } else {
-            header('location: /updateprofile');
+            echo "<script>alert('Not al fields with * where filled')</script>";
+            echo "<script>window.location = '/updateprofile'</script>";
         }
     }
 }
@@ -102,9 +106,11 @@ if (isset($_POST['educationSubmit'])) {
 
             sqlInsertIntoValues('education_users', 'user_id,education_id,schools_id,started_at,finished_at',
                 $user_id . ',' . $eduId . ',' . $schoolId . ',' . $edu_started_at . ',' . $edu_finished_at, $conn);
-            header('location: /updateprofile');
+            echo "<script>alert('Education added')</script>";
+            echo "<script>window.location = '/updateprofile'</script>";
         } else {
-            header('location: /updateprofile');
+            echo "<script>alert('Not al fields with * where filled')</script>";
+            echo "<script>window.location = '/updateprofile'</script>";
         }
     }
 }
@@ -127,9 +133,11 @@ if (isset($_POST['skillsSubmit'])) {
             $skill_idData = sqlGetDataWithParam('id', 'skills', 'name', $skill_name, $conn);
             $skill_id = $skill_idData['id'];
             sqlInsertIntoValues('skills_users', 'user_id,skill_id,skill_level', $user_id . ',' . $skill_id . ',' . $skill_level, $conn);
-            header('location: /updateprofile');
+            echo "<script>alert('Skill added')</script>";
+            echo "<script>window.location = '/updateprofile'</script>";
         } else {
-            header('location: /updateprofile');
+            echo "<script>alert('Not al fields with * where filled')</script>";
+            echo "<script>window.location = '/updateprofile'</script>";
         }
     }
 }
