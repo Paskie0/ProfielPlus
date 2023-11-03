@@ -12,6 +12,8 @@
 
         </div>
         <section>
+<!--            de login en signup hebben we erg subtiel gehouden. het is een functie die een gebruiken niet vaak zal gebruiken dus is het overbodig in veel flare toe te voegen
+daarom is de login niet groter dan hij moet zijn en hebben we hem aan de rechter kant geplaats.-->
             <ul>
                 <li><img src="../images/PROFIEL%20PLUS%20inverted.png" alt="Logo"></li>
                 <li>
