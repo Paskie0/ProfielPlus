@@ -32,7 +32,7 @@
                 <hr class="line">
                 </p>
                 <div>
-                    <form method="post" action="../updateProfileData.php">
+                    <form method="post" action="../updateProfileData.php" enctype="multipart/form-data">
                         <label for="file">Add profile picture</label>
                         <input type="file" accept="image/jpeg, image/png, image/svg" name="pfp" id="file">
                         <input type="text" placeholder="Add bio" name="bio">
@@ -45,7 +45,7 @@
                 <hr class="line">
                 </p>
                 <div>
-                    <form method="post" action="../updateProfileData.php">
+                    <form method="post" action="../updateProfileData.php" enctype="multipart/form-data">
                         <label for="file">Add project picture</label>
                         <input type="text" placeholder="Add project name" name="project_name">
                         <input type="file" accept="image/jpeg, image/png, image/svg" name="project_image" id="file">

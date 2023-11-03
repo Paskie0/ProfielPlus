@@ -1,161 +1,170 @@
 main {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-areas:
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
     "profile profile profile projects projects projects"
     "skills education cv projects projects projects"
     "skills education cv projects projects projects";
-  gap: 0.25rem;
-  padding: 0.5rem;
-
-  & > div {
-    display: grid;
     gap: 0.25rem;
-    padding: 0.25rem;
-    border: 2px solid black;
-    border-radius: 0.25rem;
-  }
+    padding: 0.5rem;
 
-  & #profile {
-    grid-area: profile;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas:
+    & > div {
+        display: grid;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        border: 2px solid black;
+        border-radius: 0.25rem;
+    }
+
+    & #profile {
+        grid-area: profile;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
       "pfp name bio bio"
       "pfp name bio bio"
       "socials socials bio bio";
 
-    > * {
-      display: grid;
-      place-items: center;
-    }
-
-    & #pfp {
-      grid-area: pfp;
-      border-radius: 50%;
-      overflow: hidden;
-      align-self: center;
-    }
-
-    & #name {
-      grid-area: name;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-
-      & > div {
-        display: flex;
-        justify-self: left;
-        flex-direction: column;
-        white-space: nowrap;
-
-        & span:first-child {
-          font-weight: bold;
+        > * {
+            display: grid;
+            place-items: center;
         }
 
-        & span:nth-child(2) {
-          font-size: 0.875rem;
-          color: gray;
+        & #pfp {
+            grid-area: pfp;
+            border-radius: 50%;
+            overflow: hidden;
+            align-self: center;
+            width: 200px;
+            height: 200px;
+
+            & > img {
+                max-width: 100%;
+                max-height: 100%;
+                display: block;
+                margin: auto;
+            }
         }
-      }
+
+        & #name {
+            grid-area: name;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+
+            & > div {
+                display: flex;
+                justify-self: left;
+                flex-direction: column;
+                white-space: nowrap;
+
+                & span:first-child {
+                    font-weight: bold;
+                }
+
+                & span:nth-child(2) {
+                    font-size: 0.875rem;
+                    color: gray;
+                }
+            }
+        }
+
+        & #bio {
+            grid-area: bio;
+            place-items: start left;
+            font-size: 0.875rem;
+        }
+
+        & #socials {
+            grid-area: socials;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.25rem;
+
+            & > a {
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+
+                & > img {
+                    width: 75%;
+                    border-radius: 50%;
+                }
+            }
+        }
     }
 
-    & #bio {
-      grid-area: bio;
-      place-items: start left;
-      font-size: 0.875rem;
-    }
-
-    & #socials {
-      grid-area: socials;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.25rem;
-
-      & > a {
+    & #projects {
+        grid-area: projects;
         display: grid;
-        place-items: center;
-        border-radius: 50%;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 1rem;
 
-        & > img {
-          width: 75%;
-          border-radius: 50%;
+        & > * {
+            display: grid;
+            place-items: center;
         }
-      }
-    }
-  }
-
-  & #projects {
-    grid-area: projects;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 1rem;
-
-    & > * {
-      display: grid;
-      place-items: center;
-    }
-  }
-
-  & #skills > span,
-  & #education > span,
-  & #cv > span {
-    place-self: start center;
-  }
-
-  & #skills {
-    grid-area: skills;
-
-    & > * {
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--accent);
     }
 
-    & > ul {
-      list-style-type: none;
-    }
-  }
-
-  & #education {
-    grid-area: education;
-
-    & > * {
-      display: grid;
-      place-items: center;
-      text-align: center;
-      border: 1px solid var(--accent);
+    & #skills > span,
+    & #education > span,
+    & #cv > span {
+        place-self: start center;
     }
 
-    & > ul {
-      list-style-type: none;
-    }
-  }
+    & #skills {
+        grid-area: skills;
 
-  & #cv {
-    grid-area: cv;
+        & > * {
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--accent);
+        }
 
-    & > * {
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--accent);
+        & > ul {
+            list-style-type: none;
+        }
     }
 
-    & > ul {
-      list-style-type: none;
+    & #education {
+        grid-area: education;
+
+        & > * {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            border: 1px solid var(--accent);
+        }
+
+        & > ul {
+            list-style-type: none;
+        }
     }
-  }
+
+    & #cv {
+        grid-area: cv;
+
+        & > * {
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--accent);
+        }
+
+        & > ul {
+            list-style-type: none;
+        }
+    }
 }
 
 @media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr;
-    grid-template-areas:
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
       "profile"
       "projects"
       "skills"
       "education"
       "cv";
-  }
+    }
 }
