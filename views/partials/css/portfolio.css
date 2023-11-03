@@ -98,6 +98,12 @@ main {
     }
   }
 
+  & #skills > span,
+  & #education > span,
+  & #cv > span {
+    place-self: start center;
+  }
+
   & #skills {
     grid-area: skills;
 
@@ -118,6 +124,7 @@ main {
     & > * {
       display: grid;
       place-items: center;
+      text-align: center;
       border: 1px solid var(--accent);
     }
 

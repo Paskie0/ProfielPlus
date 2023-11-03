@@ -50,8 +50,11 @@ $routes = [
     $baseDirectory . '/signup' => 'controllers/signup.php',
     $baseDirectory . '/updateprofile' => 'controllers/updateProfile.php'
 ];
-
-if (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
+//find whatever is after /user/ and put it inside a variable
+if (preg_match('#^' . $baseDirectory . '/user/(\d+)$#', $_SERVER['REQUEST_URI'], $matches)) {
+    $user_id = $matches[1];
+    includeController('controllers/portfolio.php', $conn);
+} elseif (array_key_exists($_SERVER['REQUEST_URI'], $routes)) {
     includeController($routes[$_SERVER['REQUEST_URI']], $conn);
 } else {
     http_response_code(404);
