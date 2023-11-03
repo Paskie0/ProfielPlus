@@ -13,7 +13,11 @@
 <body>
 <?php require 'partials/header/header.php' ?>
 <main>
+<!--    deze pagina is in 2 delen ingedeeld. link een kleine navigatie en rechts het hoofdgedeelte.-->
     <aside>
+<!--        hier hebben we een kleine navigatie die wanner er op geclicked wordt naar het juiste deel van de pagina gescrolled
+hier hebben we voor gekozen om het overzicht van de pagina te behouden en de gebruiken een makkelijke manier te geven om snel naar
+de het juiste deel te gaan.-->
         <nav>
             <ul>
                 <li>Navigation<hr class="line"></li>
@@ -27,6 +31,11 @@
     </aside>
     <article>
         <ul>
+<!--            de rechterkant van de pagina is het hoofddeel van deze pagina. we hebben ervoor gekozen om dit in 5 rijen met categorien te doen
+dit hebben we om 2 redenen gedaan. de eerste reden is performance. op deze manier zetten wij een klein limiet op de hoeveel heid
+data dat een gebruiker in 1x naar de database kan sturen. dit houdt de pagina snel en responsive. de tweede reden is overzicht. er kan veel data op worden ingevuld
+maar zodra de gebruiken zijn portfolio heeft ingericht zal deze pagina voornamlijk worden gebruikt voor kleine aanpassingen. door deze kant in stukken op te delen
+kan de gebruiken snel zien waar hij de data moet invullen-->
             <li>
                 <p>Profile
                 <hr class="line">
