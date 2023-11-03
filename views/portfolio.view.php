@@ -4,12 +4,13 @@
     <?php require 'partials/head.php' ?>
     <link rel="stylesheet" href="../views/partials/css/portfolio.css" />
 </head>
+
 <body>
     <?php require 'partials/header/header.php' ?>
     <main>
         <div id="profile">
             <div id="pfp">
-                <img src="../<?php echo $pfp?>" alt="test">
+                <img src="../<?php echo $pfp ?>" alt="test">
             </div>
             <div id="name">
                 <div>
@@ -40,7 +41,7 @@
                     $schoolNameData = sqlGetDataWithParam('name', 'schools', 'id', $schoolIdData['schools_id'], $conn);
                     $started_at = $schoolIdData['started_at'];
                     $finished_at = $schoolIdData['finished_at'];
-                    echo "<li>" . $education['education_name'] . "<p>".$schoolNameData['name']."</p><p>".$started_at." : ".$finished_at."</p></li>";
+                    echo "<li>" . $education['education_name'] . "<p>" . $schoolNameData['name'] . "</p><p>" . $started_at . " : " . $finished_at . "</p></li>";
                 } ?>
             </ul>
         </div>
@@ -53,13 +54,13 @@
                     $jobId = $job['job_id'];
                     $companyIdData = sqlGetDataWithParam('company_id,started_at,stopped_at', 'jobs_users', 'job_id', $jobId, $conn);
                     $companyNameData = sqlGetDataWithParam('name', 'companies', 'id', $companyIdData['company_id'], $conn);
-                    if ($companyIdData['stopped_at'] == '0000-00-00'){
+                    if ($companyIdData['stopped_at'] == '0000-00-00') {
                         $stopped_at = 'Present';
-                    }else{
+                    } else {
                         $stopped_at = $companyIdData['stopped_at'];
                     }
                     $started_at = $companyIdData['started_at'];
-                    echo "<li class='jobElement'>" . $job['job_name'] . "<p>".$companyNameData['name']."</p><p>".$started_at." : ".$stopped_at."</p></li>";
+                    echo "<li class='jobElement'>" . $job['job_name'] . "<p>" . $companyNameData['name'] . "</p><p>" . $started_at . " : " . $stopped_at . "</p></li>";
                 } ?>
             </ul>
         </div>
@@ -74,7 +75,7 @@
                 imagedestroy($img);
 
                 echo "<div><span>" . $project['project_name'] . "</span>";
-                echo "<a href='". $project['project_link']."' target='_blank'><img src='../" .$projectImage ."' alt='test'></a>";
+                echo "<a href='" . $project['project_link'] . "' target='_blank'><img src='../" . $projectImage . "' alt='test'></a></div>";
             } ?>
 
         </div>
