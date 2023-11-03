@@ -43,7 +43,7 @@ kan de gebruiken snel zien waar hij de data moet invullen-->
                 <div>
                     <form method="post" action="../updateProfileData.php" enctype="multipart/form-data">
                         <label for="file">Add profile picture</label><div></div>
-                        <input type="file" accept="image/jpeg, image/png, image/svg" name="pfp" id="file"><div></div>
+                        <input type="file" accept="image/jpeg" name="pfp" id="file"><div></div>
                         <input type="text" placeholder="Add bio" name="bio"><div></div>
                         <input type="submit" value="Save changes" id="button" name="profileSubmit"><div></div>
                     </form>
