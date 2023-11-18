@@ -5,6 +5,8 @@ require "functions/sqlfunctions.php";
 $conn = require "functions/connection.php";
 $user_id = $_SESSION["user_id"];
 
+// de onderstaande if statements doen vrijwel allemaal hetzelfde maar dan voor verschillende data
+// voor de images wordt base64 encode en decode gebruikt zodat we ze makkelijk kunnen opslaan in de db
 if (isset($_POST['profileSubmit'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $bio = $_POST["bio"];
@@ -70,8 +72,12 @@ if (isset($_POST['jobsSubmit'])) {
             $jobIdData = sqlGetDataWithParam('id', 'jobs', 'name', $jobtitle, $conn);
             $jobId = $jobIdData['id'];
 
-            sqlInsertIntoValues('jobs_users', 'user_id,job_id,company_id,started_at,stopped_at',
-                $user_id . ',' . $jobId . ',' . $companyId . ',' . $job_started_at . ',' . $job_stopped_at, $conn);
+            sqlInsertIntoValues(
+                'jobs_users',
+                'user_id,job_id,company_id,started_at,stopped_at',
+                $user_id . ',' . $jobId . ',' . $companyId . ',' . $job_started_at . ',' . $job_stopped_at,
+                $conn
+            );
             echo "<script>alert('Job added')</script>";
             echo "<script>window.location = '/updateprofile'</script>";
         } else {
@@ -104,8 +110,12 @@ if (isset($_POST['educationSubmit'])) {
             $eduIdData = sqlGetDataWithParam('id', 'education', 'name', $education_name, $conn);
             $eduId = $eduIdData['id'];
 
-            sqlInsertIntoValues('education_users', 'user_id,education_id,schools_id,started_at,finished_at',
-                $user_id . ',' . $eduId . ',' . $schoolId . ',' . $edu_started_at . ',' . $edu_finished_at, $conn);
+            sqlInsertIntoValues(
+                'education_users',
+                'user_id,education_id,schools_id,started_at,finished_at',
+                $user_id . ',' . $eduId . ',' . $schoolId . ',' . $edu_started_at . ',' . $edu_finished_at,
+                $conn
+            );
             echo "<script>alert('Education added')</script>";
             echo "<script>window.location = '/updateprofile'</script>";
         } else {
@@ -141,5 +151,3 @@ if (isset($_POST['skillsSubmit'])) {
         }
     }
 }
-
-

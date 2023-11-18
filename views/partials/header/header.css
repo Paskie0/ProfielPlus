@@ -23,6 +23,10 @@ header {
   #headerNav {
     grid-area: nav;
     display: grid;
+    /* 
+      position: relative verplaatst het element zelf niet maar creërt 
+      een context voor alle child-elements met bijv. position: absolute
+    */
     position: relative;
 
     & > ul {
@@ -43,6 +47,7 @@ header {
       }
 
       #menuButton {
+        /* display: none haalt het element en alle child elements uit het document */
         display: none;
         background: none;
         border: none;
@@ -56,14 +61,16 @@ header {
           cursor: pointer;
 
           & > rect {
+            /* hier zijn de verschillende opties voor "transition" opgesplitst om het overzichtelijker te maken */
             transition-property: y, opacity, rotate;
             transition-duration: 200ms, 0ms, 200ms;
             transition-delay: 200ms, 200ms, 0ms;
+            /* origin bepaalt vanuit waar de animation begint */
             transform-origin: center;
             transition-timing-function: ease-in-out;
           }
         }
-
+        /* [...] kan worden gebruikt om html attributen te selecteren */
         &[aria-expanded="true"] svg {
           & > rect {
             transition-property: y, opacity, rotate;
@@ -73,6 +80,7 @@ header {
 
           .top,
           .bottom {
+            /* y is de positie binnen een svg viewbox op de y-axis */
             y: 45;
           }
 
@@ -94,14 +102,14 @@ header {
     .nav-background {
       position: absolute;
       height: 100%;
-      background-color: var(--secondary); /* Set your desired background color */
+      background-color: var(--secondary);
       border-radius: 0.25rem;
       width: 0;
       opacity: 0;
       transition: translate 0.3s, width 0.3s, opacity 0.3s;
       z-index: -1;
       top: 0;
-      left: 0; /* Adjust to align with the navigation */
+      left: 0;
     }
   }
 
@@ -130,7 +138,7 @@ header {
 @media screen and (max-width: 768px) {
   header #headerNav ul {
     grid-template-columns: min-content;
-
+    /* :not() sluit een element(en) uit van de selector */
     & > li > a:not(#menuButton) {
       display: none;
     }

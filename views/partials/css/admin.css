@@ -1,0 +1,41 @@
+main {
+  display: grid;
+  /* grid die vanzelf opvult op basis van een minmax */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  padding: 0.5rem;
+
+  & > .userCard {
+    display: grid;
+    padding: 0.5rem;
+    background-color: var(--backgroundAlt);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.25rem;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      scale: 1.02;
+      background-color: var(--secondary);
+    }
+
+    & form {
+      /* align op de x-axis */
+      justify-self: end;
+    }
+
+    & button {
+      background-color: #121212;
+      border: none;
+      border-radius: 0.25rem;
+      color: var(--text);
+      transition: 0.2s ease-in-out;
+      padding: 0.1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #212121;
+      }
+    }
+  }
+}

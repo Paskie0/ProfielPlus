@@ -1,3 +1,4 @@
+<!-- wireframe | footer - de footer is de logische keuze voor de afsluiting van onze website, compleet met navigatie, ons logo en contactmogelijkheden -->
 <footer>
     <div class="column">
         <a href="/">

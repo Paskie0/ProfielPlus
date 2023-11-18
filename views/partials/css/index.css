@@ -1,40 +1,51 @@
 main {
+  /* simpele grid met 2 kolommen die beide evenveel ruimte innemen */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+  /* selecteer de eerste section die een direct-child is van main */
+  & > section:first-of-type {
+    width: 50vw;
+    max-height: 500px;
     display: grid;
-    grid-template-columns: min-content 1fr;
-    padding: 1rem;
-    & > section{
-        width: 50vw;
-        max-height: 500px;
-        display: grid;
-        grid-template-rows: min-content 1fr;
-        justify-self: left;
-        justify-items: center;
-        margin: 1rem;
-        padding: 10px;
-        border: 1pt var(--secondary) solid;
-        border-radius: 0.25rem;
-    }
-    & > section2{
-        width: 40vw;
-        max-height: 500px;
-        display: grid;
-        grid-template-rows: min-content 1fr;
-        place-items: center;
-        justify-self: end;
-        margin: 1rem;
-        padding: 10px;
-        overflow: auto;
-        border: 1pt var(--secondary) solid;
-        border-radius: 0.25rem;
-    }
-    & > ::-webkit-scrollbar{
-        width: 12px;
-    }
-    & > ::-webkit-scrollbar-track{
-        background: var(--secondary);
-    }
-    & > ::-webkit-scrollbar-thumb{
-        background: var(--accent);
-        border-radius: 10px;
-    }
+    grid-template-rows: min-content 1fr;
+    justify-self: left;
+    justify-items: center;
+    margin: 1rem;
+    padding: 10px;
+    border: 1pt var(--secondary) solid;
+    border-radius: 0.25rem;
+  }
+  /* selecteer de laatste section die een direct-child is van main */
+  & > section:last-of-type {
+    width: 40vw;
+    max-height: 500px;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    place-items: center;
+    justify-self: end;
+    margin: 1rem;
+    padding: 10px;
+    /* 
+        overflow-y bepaalt hoe alle overvloeiende content op de y-axis wordt behandeldt.
+        scroll betekent dat er voor de extra content een scrollbar komt.
+    */
+    overflow-y: scroll;
+    border: 1pt var(--secondary) solid;
+    border-radius: 0.25rem;
+  }
+  /*   
+    hier wordt gebruik gemaakt van de webkit prefix selector omdat
+    custom scrollbars nog niet in alle browsers beschikbaar zijn 
+  */
+  & > ::-webkit-scrollbar {
+    width: 12px;
+  }
+  & > ::-webkit-scrollbar-track {
+    background: var(--secondary);
+  }
+  & > ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+  }
 }

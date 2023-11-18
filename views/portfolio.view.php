@@ -66,7 +66,7 @@ de drie elementen zijn hier opgemaakt als skills, opleiding en werkervaring en--
                 } ?>
             </ul>
         </section>
-        <!--        als laatste segment ziojn de projecten. dit is de hoofdfunctie van het project een heeft daarom ook het grootste segment.-->
+        <!--        als laatste segment zijn de projecten. dit is de hoofdfunctie van het project een heeft daarom ook het grootste segment.-->
         <section id="projects">
             <?php foreach ($projectsData as $project) {
                 $imgData = $project['project_img'];

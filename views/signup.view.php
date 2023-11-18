@@ -15,6 +15,7 @@
         </div>
         <section>
             <img src="../images/ProfielPlus.svg" alt="Logo">
+            <!--Wireframe - In feite hetzelfde als login.php, simpel en right-aligned -->
             <form method="post" action="../signupAuth.php">
                 <input type="text" placeholder="Email" name="email">
                 <input type="text" placeholder="First name" name="first_name">

@@ -6,11 +6,10 @@ echo '<link rel="stylesheet" type="text/css" href="../views/partials/header/head
 echo '<link rel="stylesheet" type="text/css" href="../views/partials/footer/footer.css">';
 
 session_start();
-
+//maakt een array van alles in de url na "/"
 $urlPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $parts = explode('/', $urlPath);
-
-//if /user/ is in the url, get the user id from the url, otherwise get the user id from the session
+//verander "user_id" naar de meegegeven waarde als "user" aanwezig is in de url en anders naar de ingelogde user
 if (in_array('user', $parts)) {
     $user_id = end($parts);
 } elseif (!empty($_SESSION["user_id"])) {
@@ -18,9 +17,13 @@ if (in_array('user', $parts)) {
 } else {
     header('location: /');
 }
-
+// meerdere try-catches om data uit de db te halen voor de ingelogde user
+// alle data wordt netjes in een variable (...Data) gestopt om makkelijk op te roepen in de html
 $userData = sqlGetDataWithParam('firstName, name', 'users', 'id', $user_id, $conn);
 $profileData = sqlGetDataWithParam('bio, pfp', 'profile', 'user_id', $user_id, $conn);
+$firstName = $userData['firstName'];
+$lastName = $userData['name'];
+
 try {
     $sql = "SELECT skills.name AS skill_name, skills_users.skill_level
             FROM skills
@@ -46,8 +49,6 @@ try {
 } catch (PDOException $e) {
     echo "PDO Error: " . $e->getMessage();
 }
-//die(var_dump($educationData));
-
 
 try {
     $sql = "SELECT jobs.name AS job_name, job_id
@@ -62,7 +63,6 @@ try {
     echo "PDO Error: " . $e->getMessage();
 }
 
-
 try {
     $sql = "SELECT project_name, project_img, project_link
             FROM projects
@@ -75,13 +75,22 @@ try {
     echo "PDO Error: " . $e->getMessage();
 }
 
-$firstName = $userData['firstName'];
-$lastName = $userData['name'];
+try {
+    $sql = "select job_id from jobs_users where user_id = :param order by started_at desc limit 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':param', $user_id);
+    $stmt->execute();
+    $jobIdData = $stmt->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "PDO Error: " . $e->getMessage();
+}
+//if-statements om defaults te zetten voor de bio, pfp en job_id
 if (!empty($profileData['bio'])) {
     $bio = $profileData['bio'];
 } else {
     $bio = '';
 }
+
 if (!empty($profileData['pfp'])) {
     $pfpData = $profileData['pfp'];
     $binaryData = base64_decode($pfpData);
@@ -95,21 +104,11 @@ if (!empty($profileData['pfp'])) {
     $pfp = '../images/default_pfp.jpg';
 }
 
-try {
-    $sql = "select job_id from jobs_users where user_id = :param order by started_at desc limit 1";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':param', $user_id);
-    $stmt->execute();
-    $jobIdData = $stmt->fetch(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    echo "PDO Error: " . $e->getMessage();
-}
-//die(var_dump($jobIdData));
-if (!empty($jobIdData['job_id'])){
+if (!empty($jobIdData['job_id'])) {
     $profileJobId = $jobIdData['job_id'];
     $profileJobData = sqlGetDataWithParam('name', 'jobs', 'id', $profileJobId, $conn);
     $jobTitle = $profileJobData['name'];
-}else {
+} else {
     $jobTitle = 'Unemployed';
 }
 

@@ -1,50 +1,54 @@
 main {
+  /* maak een grid en zorg dat de edit fields de oveige ruimte innemen */
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  padding: 1rem;
+
+  & > section {
+    /* maak elk edit field een grid en zorg dat ze niet te groot kunnen worden met max-width */
+    width: 60vw;
+    max-height: 500px;
     display: grid;
-    grid-template-columns: min-content 1fr;
-    padding: 1rem;
-
-    & > section {
-        width: 60vw;
-        max-height: 500px;
-        display: grid;
-        grid-template-rows: min-content 1fr;
-        place-items: center;
-        justify-self: center;
-        padding: 10px;
-        margin-left: 50%;
-        border: 1pt var(--secondary) solid;
-        border-radius: 0.25rem;
-        & > h2{
-            padding: 10px;
-        }
-        & > ul {
-            list-style: none;
-            display: grid;
-            grid-template-rows: 1fr 1fr 1fr;
-            place-items: center;
-            justify-self: center;
-
-            & > li {
-                margin: 0.25rem;
-
-                & > img {
-                    max-width: 400px;
-                }
-
-                & > form {
-                    display: grid;
-                    grid-template-rows: 1fr 1fr 1fr;
-                    place-items: center;
-                    justify-self: center;
-
-                    & > input {
-                        margin: 0.25rem;
-                        padding: 0.25rem;
-                        border: none;
-                        border-radius: 0.25rem;
-                    }
-                }
-            }
-        }
+    grid-template-rows: min-content 1fr;
+    place-items: center;
+    justify-self: center;
+    padding: 10px;
+    margin-left: 50%;
+    /* hier wordt een van onze root variables gebruikt om de kleur te bepalen */
+    border: 1pt var(--secondary) solid;
+    border-radius: 0.25rem;
+    & > h2 {
+      padding: 10px;
     }
+    & > ul {
+      /* verwijder de default stijl voor lists en centreer de list items d.m.v. grid */
+      list-style: none;
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      place-items: center;
+      justify-self: center;
+
+      & > li {
+        margin: 0.25rem;
+
+        & > img {
+          max-width: 400px;
+        }
+
+        & > form {
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr;
+          place-items: center;
+          justify-self: center;
+
+          & > input {
+            margin: 0.25rem;
+            padding: 0.25rem;
+            border: none;
+            border-radius: 0.25rem;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 <?php
-
+//maak connectie met de db
 $App = require 'private.php';
 $dbconn = $App['database'];
 global $conn;
@@ -21,14 +21,13 @@ if ($_SERVER['SERVER_NAME'] === 'localhost') {
  */
 $routes = [
     $baseDirectory . '/' => 'controllers/index.php',
-    $baseDirectory . '/account' => 'controllers/account.php',
     $baseDirectory . '/admin' => 'controllers/admin.php',
     $baseDirectory . '/portfolio' => 'controllers/portfolio.php',
     $baseDirectory . '/login' => 'controllers/login.php',
     $baseDirectory . '/signup' => 'controllers/signup.php',
     $baseDirectory . '/updateprofile' => 'controllers/updateProfile.php'
 ];
-//find whatever is after /user/ and put it inside a variable
+// alles wat na /user/ in de url komt wordt hier een variable gezet
 if (preg_match('#^' . $baseDirectory . '/user/(\d+)$#', $_SERVER['REQUEST_URI'], $matches)) {
     $user_id = $matches[1];
     includeController('controllers/portfolio.php', $conn);

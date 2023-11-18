@@ -30,6 +30,7 @@ img {
   font-size: 1.25rem;
   border-radius: 100%;
   transition: all 0.3s ease;
+  /* space-between verdeeld de overige ruimte tussen de elementen, maar niet rondom */
   justify-content: space-between;
   aspect-ratio: 1;
 }
@@ -37,14 +38,13 @@ img {
 .column .socials a img {
   width: 1.5rem;
 }
-.column-email {
-}
+
 .column .socials a:hover {
   color: #fff;
   background-color: var(--accent);
   border-color: var(--accent);
 }
-
+/* in css kan je ook meerdere elementen selecteren d.m.v. een komma */
 .column-aboutus h4,
 .column-email h4 {
   color: #fff;

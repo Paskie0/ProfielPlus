@@ -11,7 +11,14 @@ moeten we een variable gebruiken. dit maakt het onmogeljik om bij de kleuren af 
   --secondary: #103737;
   --accent: #49cac8;
 }
-
+/* 
+  dit is een css-reset, de meeste browsers geven van zichzelf meestal wat default styles mee
+  waaronder een margin waardoor je meestal een rand rond je content hebt.
+  de * selector selecteert alle elementen op de pagina en verwijdert deze default styles.
+  box-sizing bepaalt of de padding en borders op een element worden meegerekend in de
+  width & height of niet, in dit geval wel.
+  voor de links verwijderen we hier de standaard underline en blauwe kleur.
+  */
 * {
   margin: 0;
   padding: 0px;

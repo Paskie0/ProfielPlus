@@ -17,6 +17,8 @@ daarom is de login niet groter dan hij moet zijn en hebben we hem aan de rechter
             <ul>
                 <li><img src="../images/ProfielPlus.svg" alt="Logo"></li>
                 <li>
+                    <!-- login form zoals beschreven in de wireframe, right-aligned.
+                    Forms maken het makkelijk om data te posten naar php -->
                     <form method="post" action="../loginAuth.php">
                         <input type="text" placeholder="Email" name="email">
                         <!-- currently password is being hashed in loginAuth.php after the http request. it is probably best to hash it here first

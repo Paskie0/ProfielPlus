@@ -1,9 +1,11 @@
 main {
-  max-width: 60rem;
+  max-width: 70rem;
+  /* 0 is voor y-axis margin en auto verdeelt de margin op de x-axis om het element te centreren */
   margin: 0 auto;
   display: grid;
   grid-template-rows: min-content 1fr 1fr;
   grid-template-columns: repeat(3, 1fr);
+  /* grid-template-areas maakt het makkelijk om layouts te visualiseren en te onderhouden */
   grid-template-areas:
     "profile profile profile"
     "skills education cv"
@@ -20,6 +22,7 @@ main {
     grid-template-rows: 1fr;
     grid-template-columns: min-content min-content 1fr;
     grid-template-areas: "pfp name bio";
+    /* ook hier wordt weer gebruikt gemaakt van onze root variables */
     background-color: var(--backgroundAlt);
     border: 1px solid var(--primary);
     border-radius: 0.5rem;
@@ -29,6 +32,7 @@ main {
     }
 
     #pfp {
+      /* met grid-area: [naam] geef je aan waar in de layout dit element komt te staan */
       grid-area: pfp;
       align-self: center;
       padding: 0.5rem;
@@ -37,6 +41,7 @@ main {
         width: 5rem;
         aspect-ratio: 1;
         border: 1px solid var(--secondary);
+        /* border-radius: 50% is een trucje in css om altijd een cirkel te creëren */
         border-radius: 50%;
       }
     }
@@ -55,7 +60,9 @@ main {
           font-weight: bold;
         }
 
+        /* nth-child() kan gebruikt worden om een bepaald element(en) in een reeks te selecteren */
         & span:nth-child(2) {
+          /* rem verwijst naar de font-size van de root (meestal 16px) */
           font-size: 0.875rem;
           color: gray;
         }
@@ -92,6 +99,7 @@ main {
 
     & > ul {
       display: flex;
+      /* flex-flow is een shorthand om de richting en het gedrag van flex elementen te bepalen */
       flex-flow: column nowrap;
       gap: 0.25rem;
       padding: 0.5rem;
@@ -102,8 +110,9 @@ main {
         background-color: var(--background);
         border: 1px solid var(--secondary);
         border-radius: 1rem;
+        /* ease-in-out zorgt voor een natuurlijkere animatie tegenover een lineaire animatie */
         transition: 0.2s ease-in-out;
-
+        /* hover activeert bepaalde styles zodra de gebruiker er met de huis overheen beweegt */
         &:hover {
           background-color: var(--secondary);
           border: 1px solid var(--accent);
@@ -126,6 +135,8 @@ main {
 
   #projects {
     grid-area: projects;
+    /* auto-fill maakt vanzelf zoveel mogelijk rows of columns om de container op te vullen */
+    /* minmax bepaalt dat een element niet kleiner dan 8rem en niet groter dan 1fr mag zijn */
     grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     gap: 0.5rem;
     padding: 0.5rem;
@@ -151,13 +162,20 @@ main {
 
       & > a > img {
         width: 7rem;
+        /* 
+          aspect-ratio is een alternatief van het gebruiken van height (of width) zodat je
+          alleen maar 1 hoeft aan te passen en de ander schaalt meteen mee
+         */
         aspect-ratio: 1;
         border-radius: 0.5rem;
       }
     }
   }
 }
-
+/* 
+  zodra de page kleine is dan 768px wordt de indeling van de grid aangepast om de ervaring
+  voor mobiele gebruikers beter te maken
+*/
 @media (max-width: 768px) {
   main {
     grid-template-columns: 1fr;

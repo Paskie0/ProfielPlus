@@ -16,7 +16,7 @@ try {
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-
+//multiple functions to simplify the code to get data from the database
 function sqlGetDataWithParam($select, $from, $where, $param, $conn)
 {
     $sql = "select $select from $from where $where = :param";
